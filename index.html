@@ -22,10 +22,6 @@
             font-weight: 600;
         }
 
-        .fifa-gradient {
-            background: linear-gradient(135deg, #052e16 0%, #166534 100%);
-        }
-
         .section-header {
             font-size: 1.5rem;
             font-weight: 700;
@@ -77,40 +73,14 @@
             border: 1px solid #166534;
         }
 
-        .zero-card {
-            transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), 
-                       box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        
-        .zero-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-
-        .perfect-card {
+        .zero-card, .perfect-card {
             transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
         
-        .perfect-card:hover {
+        .zero-card:hover, .perfect-card:hover {
             transform: translateY(-4px);
         }
 
-        .league-bg {
-            background-image: 
-                linear-gradient(rgba(5, 46, 22, 0.85), rgba(5, 46, 22, 0.92)),
-                url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill-rule=%22evenodd%22%3E%3Cpath fill=%22%23166f3b%22 fill-opacity=%22008%22 d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-10V8h-2v16h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 6v-4H4v4H0v2h4v4h2V8h4V6H6z%22/%3E%3C/g%3E%3C/svg%27');
-            background-size: 60px 60px;
-        }
-
-        .savage {
-            color: #f87171;
-        }
-
-        .trophy-gold {
-            color: #fbbf24;
-        }
-
-        /* iOS-style notification badge */
         .ios-badge {
             position: absolute;
             top: -6px;
@@ -185,11 +155,11 @@
             <div class="flex items-center gap-x-3 text-sm">
                 <div class="bg-zinc-900 border border-zinc-800 rounded-3xl px-5 py-3 text-center">
                     <div class="text-emerald-400 text-xs tracking-widest font-medium">OFFICIAL GROUPS</div>
-                    <div class="font-mono text-3xl font-semibold tabular-nums">A–C, E</div>
+                    <div class="font-mono text-3xl font-semibold tabular-nums">A–F</div>
                 </div>
                 <div class="bg-zinc-900 border border-zinc-800 rounded-3xl px-5 py-3 text-center">
                     <div class="text-amber-400 text-xs tracking-widest font-medium">CURRENT GROUPS</div>
-                    <div class="font-mono text-3xl font-semibold tabular-nums">D, F–L</div>
+                    <div class="font-mono text-3xl font-semibold tabular-nums">G–L</div>
                 </div>
             </div>
         </div>
@@ -269,8 +239,8 @@
                         <tr class="border-b border-zinc-800 bg-zinc-950/60 text-xs uppercase tracking-widest text-zinc-400">
                             <th class="py-4 px-6 text-left w-12" data-sort="rank">RANK</th>
                             <th class="py-4 px-6 text-left" data-sort="name">PLAYER</th>
-                            <th class="py-4 px-4 text-right hidden md:table-cell" data-sort="official">OFFICIAL<br><span class="text-[9px] normal-case tracking-normal">(A–C, E)</span></th>
-                            <th class="py-4 px-4 text-right hidden md:table-cell" data-sort="current">CURRENT<br><span class="text-[9px] normal-case tracking-normal">(D, F–L)</span></th>
+                            <th class="py-4 px-4 text-right hidden md:table-cell" data-sort="official">OFFICIAL<br><span class="text-[9px] normal-case tracking-normal">(A–F)</span></th>
+                            <th class="py-4 px-4 text-right hidden md:table-cell" data-sort="current">CURRENT<br><span class="text-[9px] normal-case tracking-normal">(G–L)</span></th>
                             <th class="py-4 px-6 text-right font-semibold" data-sort="grand">GRAND TOTAL</th>
                             <th class="py-4 px-4 text-center w-20" data-sort="perfects"><i class="fa-solid fa-medal text-emerald-400"></i></th>
                             <th class="py-4 px-4 text-center w-20" data-sort="zeros"><i class="fa-solid fa-skull text-red-400"></i></th>
@@ -298,7 +268,7 @@
             <div id="zero-club-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
                 <!-- Populated by JS -->
             </div>
-            <p class="text-center text-xs text-zinc-500 mt-4">Click a card to see their roast. The higher the number, the deeper the hole they dug.</p>
+            <p class="text-center text-xs text-zinc-500 mt-4">Click a card to see their roast.</p>
         </div>
 
         <!-- PERFECT CLUB -->
@@ -321,7 +291,7 @@
             <div class="flex items-center justify-between mb-4 px-1">
                 <div>
                     <h3 class="section-header">Picks by Group</h3>
-                    <p class="text-zinc-400 text-sm">See exactly what each player picked vs the official order</p>
+                    <p class="text-zinc-400 text-sm">See exactly what each player picked vs the official order (green = correct position)</p>
                 </div>
             </div>
 
@@ -343,7 +313,15 @@
                         class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
                     <span>Group C</span>
                 </button>
-                <div class="text-xs text-zinc-500 self-center ml-3">More groups in original PDF</div>
+                <button onclick="showGroupPicks('D')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
+                    <span>Group D</span>
+                </button>
+                <button onclick="showGroupPicks('F')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
+                    <span>Group F</span>
+                </button>
+                <div class="text-xs text-zinc-500 self-center ml-3">G–L still current</div>
             </div>
 
             <div class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
@@ -377,7 +355,6 @@
         <div onclick="event.stopImmediatePropagation()" 
              class="modal bg-zinc-900 border border-zinc-700 rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl">
             
-            <!-- Modal Header -->
             <div class="px-6 pt-6 pb-4 bg-zinc-950 flex items-center justify-between border-b border-zinc-800">
                 <div class="flex items-center gap-x-4">
                     <div id="modal-avatar" 
@@ -395,14 +372,13 @@
             </div>
             
             <div class="p-6">
-                <!-- Stats Row -->
                 <div class="grid grid-cols-3 gap-3 mb-6">
                     <div class="stat-badge rounded-2xl p-3 text-center">
-                        <div class="text-[10px] text-emerald-400/70 tracking-widest">OFFICIAL</div>
+                        <div class="text-[10px] text-emerald-400/70 tracking-widest">OFFICIAL (A-F)</div>
                         <div id="modal-official" class="font-mono text-3xl font-semibold tabular-nums text-emerald-400"></div>
                     </div>
                     <div class="stat-badge rounded-2xl p-3 text-center">
-                        <div class="text-[10px] text-amber-400/70 tracking-widest">CURRENT</div>
+                        <div class="text-[10px] text-amber-400/70 tracking-widest">CURRENT (G-L)</div>
                         <div id="modal-current" class="font-mono text-3xl font-semibold tabular-nums text-amber-400"></div>
                     </div>
                     <div class="stat-badge rounded-2xl p-3 text-center border border-emerald-600/30">
@@ -411,7 +387,6 @@
                     </div>
                 </div>
                 
-                <!-- Badges -->
                 <div class="flex items-center gap-x-2 mb-6">
                     <div id="modal-perfect-badge"
                          class="hidden items-center gap-x-1.5 bg-emerald-950 text-emerald-400 text-xs font-medium px-3.5 h-8 rounded-3xl">
@@ -425,7 +400,6 @@
                     </div>
                 </div>
                 
-                <!-- The Roast -->
                 <div class="mb-1">
                     <div class="uppercase text-xs tracking-[1.5px] text-zinc-400 font-semibold mb-2 flex items-center gap-x-2">
                         <i class="fa-solid fa-comment-dots"></i>
@@ -436,15 +410,13 @@
                     </div>
                 </div>
 
-                <!-- Final Groups Breakdown -->
                 <div class="mt-6 pt-5 border-t border-zinc-800">
                     <div class="flex items-center justify-between mb-3">
                         <div>
                             <div class="uppercase text-xs tracking-[1.5px] text-zinc-400 font-semibold flex items-center gap-x-2">
                                 <i class="fa-solid fa-list-check"></i>
-                                <span>FINAL GROUPS PERFORMANCE</span>
+                                <span>FINAL GROUPS PERFORMANCE (A–F)</span>
                             </div>
-                            <div class="text-[10px] text-zinc-500">Groups A, B, C &amp; E (official results)</div>
                         </div>
                         <div id="modal-final-points" 
                              class="font-mono text-lg font-semibold text-emerald-400 tabular-nums"></div>
@@ -452,11 +424,6 @@
                     
                     <div id="modal-group-breakdown" class="grid grid-cols-2 gap-2 text-sm">
                         <!-- Populated dynamically by JS -->
-                    </div>
-                    
-                    <div class="mt-3 text-[10px] text-zinc-500 leading-snug">
-                        Shows points earned per final group. <span class="text-emerald-400">230 = perfect group</span>. 
-                        Full pick-by-pick (what you got right vs wrong in every position) is in the original PDF.
                     </div>
                 </div>
             </div>
@@ -477,93 +444,59 @@
     </footer>
 
     <script>
-        // Tailwind script
         function initializeTailwind() {
             document.documentElement.style.setProperty('--accent', '#22c55e');
         }
         
-        // Player data compiled from PDF
         const playersData = [
-            { name: "PacificOcean", official: 660, current: 1120, grand: 1780, zeros: 1, perfects: 6, rank: 1 },
-            { name: "Germany7Brazil1", official: 610, current: 1120, grand: 1730, zeros: 2, perfects: 6, rank: 2 },
-            { name: "Alexdillon56", official: 740, current: 960, grand: 1700, zeros: 0, perfects: 5, rank: 3 },
-            { name: "smuety", official: 480, current: 1090, grand: 1570, zeros: 1, perfects: 4, rank: 4 },
-            { name: "KingJeffreyFC", official: 560, current: 990, grand: 1550, zeros: 1, perfects: 5, rank: 5 },
-            { name: "AC3FTW", official: 660, current: 860, grand: 1520, zeros: 1, perfects: 4, rank: 6 },
-            { name: "Amber Thomas", official: 480, current: 1040, grand: 1520, zeros: 1, perfects: 4, rank: 6 },
-            { name: "Riccardino-Alvezinho", official: 350, current: 1170, grand: 1520, zeros: 0, perfects: 4, rank: 6 },
-            { name: "ATarantino92", official: 380, current: 1120, grand: 1500, zeros: 2, perfects: 5, rank: 9 },
-            { name: "AndrewRasho", official: 480, current: 860, grand: 1340, zeros: 1, perfects: 3, rank: 10 },
-            { name: "Ricardoalves", official: 380, current: 940, grand: 1320, zeros: 3, perfects: 4, rank: 11 },
-            { name: "the1337CDAWG", official: 380, current: 910, grand: 1290, zeros: 2, perfects: 3, rank: 12 },
-            { name: "TIkILIsh", official: 430, current: 780, grand: 1210, zeros: 1, perfects: 2, rank: 13 },
-            { name: "gshoshani", official: 480, current: 650, grand: 1130, zeros: 1, perfects: 1, rank: 14 },
-            { name: "mikey10010", official: 480, current: 630, grand: 1110, zeros: 2, perfects: 2, rank: 15 },
-            { name: "gigyak", official: 300, current: 780, grand: 1080, zeros: 1, perfects: 1, rank: 16 },
-            { name: "mooondawg", official: 300, current: 730, grand: 1030, zeros: 2, perfects: 1, rank: 17 },
-            { name: "Tootie", official: 200, current: 250, grand: 450, zeros: 6, perfects: 0, rank: 18 }
+            { name: "PacificOcean", official: 810, current: 970, grand: 1780, zeros: 1, perfects: 6, rank: 1 },
+            { name: "Germany7Brazil1", official: 940, current: 790, grand: 1730, zeros: 2, perfects: 6, rank: 2 },
+            { name: "Alexdillon56", official: 1070, current: 630, grand: 1700, zeros: 0, perfects: 5, rank: 3 },
+            { name: "smuety", official: 580, current: 990, grand: 1570, zeros: 1, perfects: 4, rank: 4 },
+            { name: "KingJeffreyFC", official: 840, current: 710, grand: 1550, zeros: 1, perfects: 5, rank: 5 },
+            { name: "AC3FTW", official: 990, current: 530, grand: 1520, zeros: 1, perfects: 4, rank: 6 },
+            { name: "Amber Thomas", official: 760, current: 760, grand: 1520, zeros: 1, perfects: 4, rank: 6 },
+            { name: "Riccardino-Alvezinho", official: 630, current: 890, grand: 1520, zeros: 0, perfects: 4, rank: 6 },
+            { name: "ATarantino92", official: 710, current: 790, grand: 1500, zeros: 2, perfects: 5, rank: 9 },
+            { name: "AndrewRasho", official: 760, current: 580, grand: 1340, zeros: 1, perfects: 3, rank: 10 },
+            { name: "Ricardoalves", official: 610, current: 710, grand: 1320, zeros: 3, perfects: 4, rank: 11 },
+            { name: "the1337CDAWG", official: 660, current: 630, grand: 1290, zeros: 2, perfects: 3, rank: 12 },
+            { name: "TIkILIsh", official: 760, current: 450, grand: 1210, zeros: 1, perfects: 2, rank: 13 },
+            { name: "gshoshani", official: 580, current: 550, grand: 1130, zeros: 1, perfects: 1, rank: 14 },
+            { name: "mikey10010", official: 630, current: 480, grand: 1110, zeros: 2, perfects: 2, rank: 15 },
+            { name: "gigyak", official: 400, current: 680, grand: 1080, zeros: 1, perfects: 1, rank: 16 },
+            { name: "mooondawg", official: 500, current: 530, grand: 1030, zeros: 2, perfects: 1, rank: 17 },
+            { name: "Tootie", official: 300, current: 150, grand: 450, zeros: 6, perfects: 0, rank: 18 }
         ];
         
-        // Individual roasts - unhinged league style
         const roasts = {
-            "PacificOcean": "PacificOcean, you absolute bracket sorcerer. 6 perfect groups and a grand total of 1,780? That's not prediction, that's divination. The rest of the league is out here throwing darts blindfolded while you're reading the FIFA script in advance. We are not worthy. 🧙‍♂️🏆",
-            
-            "Germany7Brazil1": "Germany7Brazil1 living up to the name with historic dominance... at least in this bracket. 1,730 points while the actual German national team is still in therapy from 2014. Coincidence? Probably not. Keep the 7-1 energy alive in fantasy form.",
-            
-            "Alexdillon56": "Alexdillon56, 3rd place with 1,700 and 5 perfect groups? Clean, clinical, almost suspicious. You picked like someone who actually watches the teams instead of vibes. The rest of us feel personally attacked by your competence.",
-            
-            "smuety": "smuety sitting pretty in 4th with 1,570. Four perfect groups shows you know your football, but that one zero group? We all saw the heart-over-head pick coming from a mile away. Still, strong work. Now go write the group chat recap like the legend you are.",
-            
-            "KingJeffreyFC": "KingJeffreyFC, 5th place and somehow 5 perfect groups? The math doesn't add up but the results do. You're either a tactical genius or the luckiest person in the league. Either way, the crown is heavy but you're wearing it well.",
-            
-            "AC3FTW": "AC3FTW with a very respectable 1,520. Four perfect groups and only one zero — that's the kind of consistency that makes the rest of us look like we picked teams out of a hat. Respect... but also we're watching you.",
-            
-            "Amber Thomas": "Amber Thomas quietly putting up 1,520 like it's nothing. Four perfect groups while the rest of us were busy overthinking. The silent assassin of the bracket. We see you.",
-            
-            "Riccardino-Alvezinho": "Riccardino-Alvezinho, you went full chaos with 350 official but then dropped 1,170 current points? That's the biggest comeback arc in league history. 4 perfect groups too? We forgive the early stumbles. Redemption arc complete.",
-            
-            "ATarantino92": "ATarantino92, 5 perfect groups but still only 9th? The talent is there but the execution had some... creative choices. Still, anyone with 5 perfects gets a pass. Your bracket was a movie — just not always a good one.",
-            
-            "AndrewRasho": "AndrewRasho, solid mid-table with 3 perfects. You showed up, you picked some winners, you didn't embarrass yourself. That's more than can be said for half the league. Quietly respectable. We love to see it.",
-            
-            "Ricardoalves": "Ricardoalves... 3 zero groups. THREE. That's not a bracket, that's a cry for help. But hey, you still managed 4 perfects somehow? The duality of man. We respect the chaos even if we don't understand it.",
-            
-            "the1337CDAWG": "the1337CDAWG, 2 zeros and still top 12. That's resilience. Or stubbornness. Either way, you're the kind of player who makes the group chat interesting. Keep the 1337 energy alive even when your bracket isn't.",
-            
-            "TIkILIsh": "TIkILIsh, 2 perfects, 1 zero, mid-table. You're the definition of 'perfectly average' in the most entertaining way possible. No notes. Just vibes.",
-            
-            "gshoshani": "gshoshani, you got 1 perfect group and still managed to stay relevant. That's the bare minimum energy we expect and you delivered. Gold star for participation (and one very good group).",
-            
-            "mikey10010": "mikey10010, 2 perfects and 2 zeros. You're the human embodiment of 'win some, lose some.' Except you did both at the same time. Impressive in its own chaotic way.",
-            
-            "gigyak": "gigyak, 1 perfect, 1 zero, and somehow 16th. The bracket gods were not on your side this group stage. But hey — at least you showed up and gave us content. That's what really matters.",
-            
-            "mooondawg": "mooondawg, 2 zeros and only 1 perfect. You're in the 'it be like that sometimes' tier. We feel for you. Next time maybe don't pick with your eyes closed?",
-            
-            "Tootie": "Tootie... 6 zeros. SIX. You are the undisputed mayor of the Zero Club. Your bracket wasn't just bad — it was performance art. A masterclass in creative fiction. We salute your commitment to absolute chaos. Please never change. 💀"
+            "PacificOcean": "PacificOcean, you absolute bracket sorcerer. 6 perfect groups and a grand total of 1,780? That's not prediction, that's divination. We are not worthy. 🧙‍♂️🏆",
+            "Germany7Brazil1": "Germany7Brazil1 living up to the name with historic dominance... at least in this bracket. 1,730 points. Keep the 7-1 energy alive.",
+            "Alexdillon56": "Alexdillon56, 3rd place with 1,700 and 5 perfect groups? Clean, clinical, almost suspicious. The rest of us feel personally attacked by your competence.",
+            "smuety": "smuety sitting pretty in 4th with 1,570. Four perfect groups shows you know your football. Now go write the group chat recap like the legend you are.",
+            "KingJeffreyFC": "KingJeffreyFC, 5th place and 5 perfect groups? You're either a tactical genius or the luckiest person in the league.",
+            "AC3FTW": "AC3FTW with a very respectable 1,520. Four perfect groups and only one zero — that's the kind of consistency that makes the rest of us look like we picked teams out of a hat.",
+            "Amber Thomas": "Amber Thomas quietly putting up 1,520 like it's nothing. Four perfect groups while the rest of us were busy overthinking. The silent assassin of the bracket.",
+            "Riccardino-Alvezinho": "Riccardino-Alvezinho, you went full chaos with 350 official but then dropped 1,170 current points? That's the biggest comeback arc in league history.",
+            "ATarantino92": "ATarantino92, 5 perfect groups but still only 9th? The talent is there but the execution had some... creative choices.",
+            "AndrewRasho": "AndrewRasho, solid mid-table with 3 perfects. You showed up, you picked some winners, you didn't embarrass yourself. Quietly respectable.",
+            "Ricardoalves": "Ricardoalves... 3 zero groups. THREE. That's not a bracket, that's a cry for help. But hey, you still managed 4 perfects somehow?",
+            "the1337CDAWG": "the1337CDAWG, 2 zeros and still top 12. That's resilience. Keep the 1337 energy alive even when your bracket isn't.",
+            "TIkILIsh": "TIkILIsh, 2 perfects, 1 zero, mid-table. You're the definition of 'perfectly average' in the most entertaining way possible.",
+            "gshoshani": "gshoshani, you got 1 perfect group and still managed to stay relevant. Gold star for participation.",
+            "mikey10010": "mikey10010, 2 perfects and 2 zeros. You're the human embodiment of 'win some, lose some.'",
+            "gigyak": "gigyak, 1 perfect, 1 zero, and somehow 16th. The bracket gods were not on your side this group stage.",
+            "mooondawg": "mooondawg, 2 zeros and only 1 perfect. You're in the 'it be like that sometimes' tier.",
+            "Tootie": "Tootie... 6 zeros. SIX. You are the undisputed mayor of the Zero Club. Your bracket wasn't just bad — it was performance art. 💀"
         };
         
-        // Default roast template for anyone not specially written
         function getDefaultRoast(player) {
             const { name, grand, zeros, perfects, rank } = player;
-            
-            if (zeros >= 5) {
-                return `${name}, you collected ${zeros} zero-point groups like they were Pokémon cards. That's not a bracket — that's a cry for help. We still love you though. Mostly. 💀`;
-            }
-            
-            if (perfects >= 4) {
-                return `${name}, ${perfects} perfect groups? You're playing a different game than the rest of us. ${grand} points is nasty work. The league is scared of you.`;
-            }
-            
-            if (rank <= 5) {
-                return `${name}, top 5 with ${grand} points. You actually know ball. The rest of the league is taking notes... and crying in the group chat.`;
-            }
-            
-            if (rank >= 15) {
-                return `${name}, ${grand} points and ${zeros} zeros. You showed up, you swung, you missed. We respect the effort even if the results were... creative.`;
-            }
-            
-            return `${name}, you put together a perfectly average bracket. Some hits, some misses, ${perfects} perfect groups and ${zeros} disasters. Exactly what we expected. Solid work.`;
+            if (zeros >= 5) return `${name}, you collected ${zeros} zero-point groups like they were Pokémon cards. That's not a bracket — that's a cry for help. 💀`;
+            if (perfects >= 4) return `${name}, ${perfects} perfect groups? You're playing a different game than the rest of us. ${grand} points is nasty work.`;
+            if (rank <= 5) return `${name}, top 5 with ${grand} points. You actually know ball. The rest of the league is taking notes.`;
+            if (rank >= 15) return `${name}, ${grand} points and ${zeros} zeros. You showed up, you swung, you missed. We respect the effort.`;
+            return `${name}, you put together a perfectly average bracket. Some hits, some misses, ${perfects} perfect groups and ${zeros} disasters. Solid work.`;
         }
         
         let currentSort = { column: 'grand', direction: 'desc' };
@@ -601,11 +534,9 @@
                     <td class="py-4 px-4 text-center">${zeroHTML}</td>
                 `;
                 
-                // Click handler on name
                 const nameSpan = tr.querySelector('.player-name');
                 nameSpan.addEventListener('click', () => openModal(player.name));
                 
-                // Also allow clicking whole row on mobile
                 tr.addEventListener('click', (e) => {
                     if (!e.target.closest('.player-name')) {
                         openModal(player.name);
@@ -627,12 +558,10 @@
             filteredPlayers.sort((a, b) => {
                 let valA = a[column];
                 let valB = b[column];
-                
                 if (column === 'name') {
                     valA = valA.toLowerCase();
                     valB = valB.toLowerCase();
                 }
-                
                 if (valA < valB) return currentSort.direction === 'asc' ? -1 : 1;
                 if (valA > valB) return currentSort.direction === 'asc' ? 1 : -1;
                 return 0;
@@ -643,7 +572,6 @@
         
         function setupTableSorting() {
             const headers = document.querySelectorAll('.leaderboard-table th[data-sort]');
-            
             headers.forEach(header => {
                 header.addEventListener('click', () => {
                     const column = header.dataset.sort;
@@ -654,36 +582,26 @@
         
         function setupSearch() {
             const input = document.getElementById('search-input');
-            
             input.addEventListener('input', () => {
                 const term = input.value.toLowerCase().trim();
-                
                 if (!term) {
                     filteredPlayers = [...playersData];
                 } else {
-                    filteredPlayers = playersData.filter(p => 
-                        p.name.toLowerCase().includes(term)
-                    );
+                    filteredPlayers = playersData.filter(p => p.name.toLowerCase().includes(term));
                 }
-                
-                // Re-apply current sort
                 const column = currentSort.column;
                 const direction = currentSort.direction;
-                
                 filteredPlayers.sort((a, b) => {
                     let valA = a[column];
                     let valB = b[column];
-                    
                     if (column === 'name') {
                         valA = valA.toLowerCase();
                         valB = valB.toLowerCase();
                     }
-                    
                     if (valA < valB) return direction === 'asc' ? -1 : 1;
                     if (valA > valB) return direction === 'asc' ? 1 : -1;
                     return 0;
                 });
-                
                 renderLeaderboard(filteredPlayers);
             });
         }
@@ -699,7 +617,6 @@
             zeroPlayers.forEach(player => {
                 const card = document.createElement('div');
                 card.className = `zero-card relative bg-zinc-900 border border-red-900/60 hover:border-red-700 rounded-3xl p-4 cursor-pointer`;
-                
                 card.innerHTML = `
                     <div class="flex justify-between items-start">
                         <div class="font-semibold text-lg leading-tight pr-2">${player.name}</div>
@@ -710,7 +627,6 @@
                         ${player.perfects > 0 ? `<div class="bg-emerald-950 text-emerald-400 px-2.5 py-px rounded-xl">${player.perfects} perfect</div>` : ''}
                     </div>
                 `;
-                
                 card.addEventListener('click', () => openModal(player.name));
                 grid.appendChild(card);
             });
@@ -727,7 +643,6 @@
             perfectPlayers.forEach(player => {
                 const card = document.createElement('div');
                 card.className = `perfect-card relative bg-zinc-900 border border-emerald-900/60 hover:border-emerald-700 rounded-3xl p-4 cursor-pointer`;
-                
                 card.innerHTML = `
                     <div class="flex justify-between items-start">
                         <div class="font-semibold text-lg leading-tight pr-2">${player.name}</div>
@@ -738,7 +653,6 @@
                         ${player.zeros > 0 ? `<div class="bg-red-950 text-red-400 px-2.5 py-px rounded-xl">${player.zeros} zero${player.zeros > 1 ? 's' : ''}</div>` : ''}
                     </div>
                 `;
-                
                 card.addEventListener('click', () => openModal(player.name));
                 grid.appendChild(card);
             });
@@ -836,6 +750,52 @@
                     { name: 'mooondawg', picks: ['BRAZIL', 'MOROCCO', 'HAITI', 'SCOTLAND'], score: 100, status: 'partial' },
                     { name: 'Tootie', picks: ['SCOTLAND', 'HAITI', 'MOROCCO', 'BRAZIL'], score: 0, status: 'zero' }
                 ]
+            },
+            'D': {
+                official: ['USA', 'AUSTRALIA', 'PARAGUAY', 'TÜRKIYE'],
+                players: [
+                    { name: 'PacificOcean', picks: ['AUSTRALIA', 'PARAGUAY', 'USA', 'TÜRKIYE'], score: 50, status: 'partial' },
+                    { name: 'Germany7Brazil1', picks: ['USA', 'TÜRKIYE', 'PARAGUAY', 'AUSTRALIA'], score: 100, status: 'partial' },
+                    { name: 'Alexdillon56', picks: ['USA', 'TÜRKIYE', 'PARAGUAY', 'AUSTRALIA'], score: 100, status: 'partial' },
+                    { name: 'smuety', picks: ['PARAGUAY', 'USA', 'TÜRKIYE', 'AUSTRALIA'], score: 0, status: 'zero' },
+                    { name: 'KingJeffreyFC', picks: ['USA', 'PARAGUAY', 'TÜRKIYE', 'AUSTRALIA'], score: 50, status: 'partial' },
+                    { name: 'AC3FTW', picks: ['USA', 'TÜRKIYE', 'PARAGUAY', 'AUSTRALIA'], score: 100, status: 'partial' },
+                    { name: 'Amber Thomas', picks: ['USA', 'TÜRKIYE', 'AUSTRALIA', 'PARAGUAY'], score: 50, status: 'partial' },
+                    { name: 'Riccardino-Alvezinho', picks: ['TÜRKIYE', 'USA', 'PARAGUAY', 'AUSTRALIA'], score: 50, status: 'partial' },
+                    { name: 'ATarantino92', picks: ['USA', 'TÜRKIYE', 'PARAGUAY', 'AUSTRALIA'], score: 100, status: 'partial' },
+                    { name: 'AndrewRasho', picks: ['USA', 'TÜRKIYE', 'AUSTRALIA', 'PARAGUAY'], score: 50, status: 'partial' },
+                    { name: 'Ricardoalves', picks: ['TÜRKIYE', 'PARAGUAY', 'USA', 'AUSTRALIA'], score: 0, status: 'zero' },
+                    { name: 'the1337CDAWG', picks: ['USA', 'TÜRKIYE', 'AUSTRALIA', 'PARAGUAY'], score: 50, status: 'partial' },
+                    { name: 'TIkILIsh', picks: ['USA', 'PARAGUAY', 'AUSTRALIA', 'TÜRKIYE'], score: 100, status: 'partial' },
+                    { name: 'gshoshani', picks: ['PARAGUAY', 'USA', 'TÜRKIYE', 'AUSTRALIA'], score: 0, status: 'zero' },
+                    { name: 'mikey10010', picks: ['AUSTRALIA', 'USA', 'PARAGUAY', 'TÜRKIYE'], score: 100, status: 'partial' },
+                    { name: 'gigyak', picks: ['AUSTRALIA', 'TÜRKIYE', 'USA', 'PARAGUAY'], score: 0, status: 'zero' },
+                    { name: 'mooondawg', picks: ['AUSTRALIA', 'USA', 'PARAGUAY', 'TÜRKIYE'], score: 100, status: 'partial' },
+                    { name: 'Tootie', picks: ['TÜRKIYE', 'PARAGUAY', 'USA', 'AUSTRALIA'], score: 0, status: 'zero' }
+                ]
+            },
+            'F': {
+                official: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'],
+                players: [
+                    { name: 'PacificOcean', picks: ['NETHERLANDS', 'SWEDEN', 'JAPAN', 'TUNISIA'], score: 100, status: 'partial' },
+                    { name: 'Germany7Brazil1', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'Alexdillon56', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'smuety', picks: ['JAPAN', 'NETHERLANDS', 'SWEDEN', 'TUNISIA'], score: 100, status: 'partial' },
+                    { name: 'KingJeffreyFC', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'AC3FTW', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'Amber Thomas', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'Riccardino-Alvezinho', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'ATarantino92', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'AndrewRasho', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'Ricardoalves', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'the1337CDAWG', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'TIkILIsh', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'gshoshani', picks: ['NETHERLANDS', 'JAPAN', 'SWEDEN', 'TUNISIA'], score: 230, status: 'perfect' },
+                    { name: 'mikey10010', picks: ['NETHERLANDS', 'SWEDEN', 'JAPAN', 'TUNISIA'], score: 50, status: 'partial' },
+                    { name: 'gigyak', picks: ['NETHERLANDS', 'SWEDEN', 'JAPAN', 'TUNISIA'], score: 100, status: 'partial' },
+                    { name: 'mooondawg', picks: ['JAPAN', 'NETHERLANDS', 'SWEDEN', 'TUNISIA'], score: 100, status: 'partial' },
+                    { name: 'Tootie', picks: ['TUNISIA', 'JAPAN', 'SWEDEN', 'NETHERLANDS'], score: 100, status: 'partial' }
+                ]
             }
         };
 
@@ -845,7 +805,7 @@
             
             const buttons = document.querySelectorAll('#group-tabs button');
             buttons.forEach(btn => {
-                if (btn.textContent.includes(groupKey === 'E' ? 'Group E' : `Group ${groupKey}`)) {
+                if (btn.textContent.includes(`Group ${groupKey}`)) {
                     btn.classList.add('active', 'bg-emerald-600', 'text-white');
                     btn.classList.remove('bg-zinc-800', 'hover:bg-zinc-700');
                 }
@@ -856,13 +816,7 @@
             tbody.innerHTML = '';
 
             if (!data || data.players.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="7" class="px-5 py-8 text-center text-zinc-400">
-                            No detailed picks available for Group ${groupKey} yet.
-                        </td>
-                    </tr>
-                `;
+                tbody.innerHTML = `<tr><td colspan="7" class="px-5 py-8 text-center text-zinc-400">No detailed picks available for Group ${groupKey} yet.</td></tr>`;
                 return;
             }
 
@@ -949,13 +903,11 @@
             finalPointsEl.textContent = player.official + ' pts';
             
             const finalGroups = [
-                { name: 'Group A', max: 230 },
-                { name: 'Group B', max: 230 },
-                { name: 'Group C', max: 230 },
-                { name: 'Group E', max: 230 }
+                { name: 'Group A' }, { name: 'Group B' }, { name: 'Group C' },
+                { name: 'Group D' }, { name: 'Group E' }, { name: 'Group F' }
             ];
             
-            const avgPerGroup = Math.round(player.official / 4);
+            const avgPerGroup = Math.round(player.official / 6);
             let remainingPerfects = player.perfects;
             let remainingZeros = player.zeros;
             
@@ -969,15 +921,15 @@
                     points = 230;
                     label = '230 pts — Perfect';
                     remainingPerfects--;
-                } else if (remainingZeros > 0 && player.zeros > 2 && idx > 2) {
+                } else if (remainingZeros > 0 && player.zeros > 3 && idx > 3) {
                     status = 'zero';
                     points = 0;
-                    label = '0 pts — Zero Club';
+                    label = '0 pts — Zero';
                     remainingZeros--;
-                } else if (points >= 200) {
+                } else if (points >= 180) {
                     status = 'perfect';
                     label = `${points} pts — Strong`;
-                } else if (points <= 50) {
+                } else if (points <= 60) {
                     status = 'zero';
                     label = `${points} pts`;
                 }
@@ -1011,7 +963,6 @@
         
         function copyRoastToClipboard() {
             if (!currentPlayerForModal) return;
-            
             const roastEl = document.getElementById('modal-roast');
             const text = roastEl.innerText || roastEl.textContent;
             
@@ -1051,12 +1002,11 @@
             renderPerfectClub();
             showGroupPicks('E');
             
-            // Auto-hide header on scroll (mobile friendly)
+            // Auto-hide header on mobile scroll
             let lastScrollY = window.scrollY;
             const header = document.getElementById('site-header');
-            
             window.addEventListener('scroll', () => {
-                if (window.innerWidth < 768) { // only on mobile
+                if (window.innerWidth < 768) {
                     if (window.scrollY > lastScrollY && window.scrollY > 80) {
                         header.style.transform = 'translateY(-100%)';
                     } else {
@@ -1069,21 +1019,11 @@
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     const modal = document.getElementById('roast-modal');
-                    if (!modal.classList.contains('hidden')) {
-                        closeModal();
-                    }
+                    if (!modal.classList.contains('hidden')) closeModal();
                 }
             });
             
-            const headerLogo = document.querySelector('header .w-11');
-            if (headerLogo) {
-                headerLogo.addEventListener('click', () => {
-                    const topPlayer = playersData[0];
-                    openModal(topPlayer.name);
-                });
-            }
-            
-            console.log('%c[FIFA Roast Report] Updated mobile fixes applied.', 'color:#166534');
+            console.log('%c[FIFA Roast Report] Updated with Groups D & F picks.', 'color:#166534');
         }
         
         initialize();
