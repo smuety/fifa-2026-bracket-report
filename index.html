@@ -152,16 +152,6 @@
                 <p class="mt-3 text-xl text-zinc-400 max-w-md">Official results + current standings. Click any name for a personalized savage recap.</p>
             </div>
             
-            <div class="flex items-center gap-x-3 text-sm">
-                <div class="bg-zinc-900 border border-zinc-800 rounded-3xl px-5 py-3 text-center">
-                    <div class="text-emerald-400 text-xs tracking-widest font-medium">OFFICIAL GROUPS</div>
-                    <div class="font-mono text-3xl font-semibold tabular-nums">A–F</div>
-                </div>
-                <div class="bg-zinc-900 border border-zinc-800 rounded-3xl px-5 py-3 text-center">
-                    <div class="text-amber-400 text-xs tracking-widest font-medium">CURRENT GROUPS</div>
-                    <div class="font-mono text-3xl font-semibold tabular-nums">G–L</div>
-                </div>
-            </div>
         </div>
 
         <!-- Quick Stats -->
@@ -207,17 +197,26 @@
                 </div>
             </div>
             
-            <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-5 flex flex-col justify-between">
-                <div>
-                    <div class="text-xs text-zinc-400 tracking-wider">LEAGUE VIBES</div>
-                    <div class="font-semibold">Unhinged • Savage • Legendary</div>
-                </div>
-                <div class="text-[10px] text-zinc-500 mt-auto pt-3">Data pulled from official bracket PDF • Some groups ongoing</div>
-            </div>
         </div>
 
         <!-- LEADERBOARD -->
         <div class="mb-14">
+            <!-- KPI Tiles -->
+            <div class="flex items-center gap-x-2 mb-3 px-1">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl px-4 py-1.5 text-center">
+                    <div class="text-emerald-400 text-[10px] tracking-widest font-medium">OFFICIAL</div>
+                    <div class="font-mono text-xl font-semibold tabular-nums">A–F</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl px-4 py-1.5 text-center">
+                    <div class="text-amber-400 text-[10px] tracking-widest font-medium">CURRENT</div>
+                    <div class="font-mono text-xl font-semibold tabular-nums">G–L</div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl px-4 py-1.5 text-center">
+                    <div class="text-purple-400 text-[10px] tracking-widest font-medium">LEAGUE PICK ACCURACY</div>
+                    <div class="font-mono text-xl font-semibold tabular-nums">50%</div>
+                </div>
+            </div>
+
             <div class="flex items-center justify-between mb-4 px-1">
                 <div class="flex items-center gap-x-3">
                     <i class="fa-solid fa-list-ol text-emerald-400 text-xl"></i>
@@ -239,8 +238,8 @@
                         <tr class="border-b border-zinc-800 bg-zinc-950/60 text-xs uppercase tracking-widest text-zinc-400">
                             <th class="py-4 px-6 text-left w-12" data-sort="rank">RANK</th>
                             <th class="py-4 px-6 text-left" data-sort="name">PLAYER</th>
-                            <th class="py-4 px-4 text-right hidden md:table-cell" data-sort="official">OFFICIAL<br><span class="text-[9px] normal-case tracking-normal">(A–F)</span></th>
-                            <th class="py-4 px-4 text-right hidden md:table-cell" data-sort="current">CURRENT<br><span class="text-[9px] normal-case tracking-normal">(G–L)</span></th>
+                            <th class="py-4 px-4 text-right hidden md:table-cell font-semibold text-emerald-400" data-sort="official">OFFICIAL<br><span class="text-[9px] normal-case tracking-normal text-emerald-400/70">(A–F)</span></th>
+                            <th class="py-4 px-4 text-right hidden md:table-cell text-zinc-500" data-sort="current">CURRENT<br><span class="text-[9px] normal-case tracking-normal">(G–L)</span></th>
                             <th class="py-4 px-6 text-right font-semibold" data-sort="grand">GRAND TOTAL</th>
                             <th class="py-4 px-4 text-center w-20" data-sort="perfects"><i class="fa-solid fa-medal text-emerald-400"></i></th>
                             <th class="py-4 px-4 text-center w-20" data-sort="zeros"><i class="fa-solid fa-skull text-red-400"></i></th>
@@ -324,17 +323,19 @@
                 <div class="text-xs text-zinc-500 self-center ml-3">G–L still current</div>
             </div>
 
+            <div id="group-stats-bar" class="mb-2 px-1 text-xs text-zinc-400 flex items-center gap-x-4"></div>
+
             <div class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
                 <div class="overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
                     <table class="w-full text-sm min-w-[720px]" id="group-picks-table">
                         <thead class="bg-zinc-950">
                             <tr class="text-xs uppercase tracking-widest text-zinc-400">
-                                <th class="py-3 px-5 text-left">Player</th>
+                                <th class="py-3 px-5 text-left cursor-pointer hover:text-emerald-400" data-sort="player">Player</th>
                                 <th class="py-3 px-4 text-center">1st</th>
                                 <th class="py-3 px-4 text-center">2nd</th>
                                 <th class="py-3 px-4 text-center">3rd</th>
                                 <th class="py-3 px-4 text-center">4th</th>
-                                <th class="py-3 px-4 text-center">Score</th>
+                                <th class="py-3 px-4 text-center cursor-pointer hover:text-emerald-400" data-sort="score">Score</th>
                                 <th class="py-3 px-5 text-center">Status</th>
                             </tr>
                         </thead>
@@ -373,16 +374,16 @@
             
             <div class="p-6">
                 <div class="grid grid-cols-3 gap-3 mb-6">
-                    <div class="stat-badge rounded-2xl p-3 text-center">
-                        <div class="text-[10px] text-emerald-400/70 tracking-widest">OFFICIAL (A-F)</div>
-                        <div id="modal-official" class="font-mono text-3xl font-semibold tabular-nums text-emerald-400"></div>
+                    <div class="stat-badge rounded-2xl p-3 text-center border border-emerald-600/60 bg-emerald-950/30">
+                        <div class="text-[10px] text-emerald-400 tracking-widest font-semibold">OFFICIAL (A-F)</div>
+                        <div id="modal-official" class="font-mono text-3xl font-bold tabular-nums text-emerald-400 mt-0.5"></div>
                     </div>
                     <div class="stat-badge rounded-2xl p-3 text-center">
                         <div class="text-[10px] text-amber-400/70 tracking-widest">CURRENT (G-L)</div>
                         <div id="modal-current" class="font-mono text-3xl font-semibold tabular-nums text-amber-400"></div>
                     </div>
-                    <div class="stat-badge rounded-2xl p-3 text-center border border-emerald-600/30">
-                        <div class="text-[10px] text-emerald-400 tracking-widest">GRAND TOTAL</div>
+                    <div class="stat-badge rounded-2xl p-3 text-center">
+                        <div class="text-[10px] text-emerald-400/70 tracking-widest">GRAND TOTAL</div>
                         <div id="modal-grand" class="font-mono text-3xl font-semibold tabular-nums"></div>
                     </div>
                 </div>
@@ -542,8 +543,8 @@
                             ${player.name}
                         </span>
                     </td>
-                    <td class="py-4 px-4 text-right font-mono hidden md:table-cell text-emerald-300">${player.official}</td>
-                    <td class="py-4 px-4 text-right font-mono hidden md:table-cell text-amber-300">${player.current}</td>
+                    <td class="py-4 px-4 text-right font-mono hidden md:table-cell text-emerald-400 font-semibold">${player.official}</td>
+                    <td class="py-4 px-4 text-right font-mono hidden md:table-cell text-amber-300/70">${player.current}</td>
                     <td class="py-4 px-6 text-right">
                         <span class="font-mono text-xl font-semibold tabular-nums">${player.grand}</span>
                     </td>
@@ -816,7 +817,11 @@
             }
         };
 
+        let currentGroupKey = 'E';
+
         function showGroupPicks(groupKey) {
+            currentGroupKey = groupKey;
+
             document.querySelectorAll('#group-tabs button').forEach(btn => btn.classList.remove('active', 'bg-emerald-600', 'text-white'));
             document.querySelectorAll('#group-tabs button').forEach(btn => btn.classList.add('bg-zinc-800', 'hover:bg-zinc-700'));
             
@@ -837,9 +842,12 @@
                 return;
             }
 
+            // Sort by Score descending by default
+            let playersToShow = [...data.players].sort((a, b) => b.score - a.score);
+
             const official = data.official;
 
-            data.players.forEach(p => {
+            playersToShow.forEach(p => {
                 const isPerfect = p.status === 'perfect';
                 const isZero = p.status === 'zero';
                 
@@ -869,6 +877,37 @@
                 `;
                 tbody.appendChild(row);
             });
+
+            // Calculate proper pick accuracy % for this group
+            const statsBar = document.getElementById('group-stats-bar');
+            let totalCorrectPositions = 0;
+
+            data.players.forEach(player => {
+                player.picks.forEach((pick, i) => {
+                    if (pick === official[i]) totalCorrectPositions++;
+                });
+            });
+
+            const totalPossible = data.players.length * 4;
+            const pickAccuracy = Math.round((totalCorrectPositions / totalPossible) * 100);
+            const perfectCount = data.players.filter(p => p.status === 'perfect').length;
+
+            statsBar.innerHTML = `
+                <span class="font-semibold text-emerald-400">League Pick Accuracy: ${pickAccuracy}%</span>
+                <span class="text-emerald-400">• ${perfectCount} Perfect</span>
+            `;
+
+            // Make Score header clickable for sorting
+            const scoreHeader = document.querySelector('#group-picks-table th[data-sort="score"]');
+            if (scoreHeader) {
+                scoreHeader.style.cursor = 'pointer';
+                scoreHeader.onclick = () => {
+                    const grpData = groupPicksData[currentGroupKey];
+                    if (!grpData) return;
+                    grpData.players.sort((a, b) => b.score - a.score);
+                    showGroupPicks(currentGroupKey);
+                };
+            }
         }
         
         let currentPlayerForModal = null;
@@ -919,50 +958,52 @@
             
             finalPointsEl.textContent = player.official + ' pts';
             
-            const finalGroups = [
-                { name: 'Group A' }, { name: 'Group B' }, { name: 'Group C' },
-                { name: 'Group D' }, { name: 'Group E' }, { name: 'Group F' }
-            ];
+            // Honest breakdown - show known perfects and zeros clearly
+            const perfectCount = player.perfects;
+            const zeroCount = player.zeros;
+            const mixedCount = 6 - perfectCount - zeroCount;
             
-            const avgPerGroup = Math.round(player.official / 6);
-            let remainingPerfects = player.perfects;
-            let remainingZeros = player.zeros;
+            // Create summary cards instead of fake per-group scores
+            const summaryItems = [];
             
-            finalGroups.forEach((group, idx) => {
-                let status = 'mid';
-                let points = avgPerGroup;
-                let label = `${points} pts`;
-                
-                if (remainingPerfects > 0 && idx < player.perfects) {
-                    status = 'perfect';
-                    points = 230;
-                    label = '230 pts — Perfect';
-                    remainingPerfects--;
-                } else if (remainingZeros > 0 && player.zeros > 3 && idx > 3) {
-                    status = 'zero';
-                    points = 0;
-                    label = '0 pts — Zero';
-                    remainingZeros--;
-                } else if (points >= 180) {
-                    status = 'perfect';
-                    label = `${points} pts — Strong`;
-                } else if (points <= 60) {
-                    status = 'zero';
-                    label = `${points} pts`;
-                }
-                
-                const statusColor = status === 'perfect' ? 'emerald' : status === 'zero' ? 'red' : 'amber';
-                const statusIcon = status === 'perfect' ? 'fa-medal' : status === 'zero' ? 'fa-skull' : 'fa-check';
-                
+            if (perfectCount > 0) {
+                summaryItems.push({
+                    label: `${perfectCount} Perfect Group${perfectCount > 1 ? 's' : ''}`,
+                    value: `${perfectCount * 230} pts`,
+                    color: 'emerald',
+                    icon: 'fa-medal'
+                });
+            }
+            
+            if (zeroCount > 0) {
+                summaryItems.push({
+                    label: `${zeroCount} Zero Group${zeroCount > 1 ? 's' : ''}`,
+                    value: `0 pts`,
+                    color: 'red',
+                    icon: 'fa-skull'
+                });
+            }
+            
+            if (mixedCount > 0) {
+                const mixedPoints = player.official - (perfectCount * 230);
+                summaryItems.push({
+                    label: `${mixedCount} Partial Group${mixedCount > 1 ? 's' : ''}`,
+                    value: `${mixedPoints} pts`,
+                    color: 'amber',
+                    icon: 'fa-chart-line'
+                });
+            }
+            
+            summaryItems.forEach(item => {
                 const div = document.createElement('div');
                 div.className = `bg-zinc-950 border border-zinc-800 rounded-2xl p-3 flex flex-col`;
                 div.innerHTML = `
                     <div class="flex items-center justify-between">
-                        <div class="font-semibold text-sm">${group.name}</div>
-                        <i class="fa-solid ${statusIcon} text-${statusColor}-400"></i>
+                        <div class="font-semibold text-sm">${item.label}</div>
+                        <i class="fa-solid ${item.icon} text-${item.color}-400"></i>
                     </div>
                     <div class="mt-1 text-xs">
-                        <span class="font-mono text-${statusColor}-400">${label}</span>
+                        <span class="font-mono text-${item.color}-400">${item.value}</span>
                     </div>
                 `;
                 breakdownEl.appendChild(div);
