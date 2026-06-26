@@ -355,7 +355,7 @@
     <div id="roast-modal" onclick="if (event.target.id === 'roast-modal') closeModal()" 
          class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
         <div onclick="event.stopImmediatePropagation()" 
-             class="modal bg-zinc-900 border border-zinc-700 rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden">
+             class="modal bg-zinc-900 border border-zinc-700 rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl">
             
             <!-- Modal Header -->
             <div class="px-6 pt-6 pb-4 bg-zinc-950 flex items-center justify-between border-b border-zinc-800">
@@ -684,7 +684,7 @@
                 card.innerHTML = `
                     <div class="flex justify-between items-start">
                         <div class="font-semibold text-lg leading-tight pr-2">${player.name}</div>
-                        <div class="flex-shrink-0 w-8 h-8 bg-red-950 text-red-400 rounded-2xl flex items-center justify-center font-mono text-lg font-bold leading-none">
+                        <div class="flex-shrink-0 w-7 h-7 bg-red-950 text-red-400 rounded-xl flex items-center justify-center font-mono text-base font-bold">
                             ${player.zeros}
                         </div>
                     </div>
@@ -714,7 +714,7 @@
                 card.innerHTML = `
                     <div class="flex justify-between items-start">
                         <div class="font-semibold text-lg leading-tight pr-2">${player.name}</div>
-                        <div class="flex-shrink-0 w-8 h-8 bg-emerald-950 text-emerald-400 rounded-2xl flex items-center justify-center font-mono text-lg font-bold leading-none">
+                        <div class="flex-shrink-0 w-7 h-7 bg-emerald-950 text-emerald-400 rounded-xl flex items-center justify-center font-mono text-base font-bold">
                             ${player.perfects}
                         </div>
                     </div>
