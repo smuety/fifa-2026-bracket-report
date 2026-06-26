@@ -243,7 +243,8 @@
             </div>
             
             <div class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-xl">
-                <table class="leaderboard-table w-full text-sm">
+                <div class="overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
+                    <table class="leaderboard-table w-full text-sm min-w-[700px]">
                     <thead>
                         <tr class="border-b border-zinc-800 bg-zinc-950/60 text-xs uppercase tracking-widest text-zinc-400">
                             <th class="py-4 px-6 text-left w-12" data-sort="rank">RANK</th>
@@ -259,6 +260,7 @@
                         <!-- Populated by JS -->
                     </tbody>
                 </table>
+                </div>
             </div>
             <p class="text-center text-xs text-zinc-500 mt-3">Click any player name for their personalized roast + stats</p>
         </div>
@@ -307,8 +309,7 @@
             <div class="flex flex-wrap gap-2 mb-4" id="group-tabs">
                 <button onclick="showGroupPicks('E')" 
                         class="group-tab active px-5 py-2 rounded-3xl text-sm font-medium bg-emerald-600 text-white flex items-center gap-x-2">
-                    <span>Group E</span> 
-                    <span class="text-[10px] bg-white/20 px-2 py-px rounded-2xl">FINAL</span>
+                    <span>Group E</span>
                 </button>
                 <button onclick="showGroupPicks('A')" 
                         class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
@@ -480,9 +481,7 @@
             { name: "mikey10010", official: 480, current: 630, grand: 1110, zeros: 2, perfects: 2, rank: 15 },
             { name: "gigyak", official: 300, current: 780, grand: 1080, zeros: 1, perfects: 1, rank: 16 },
             { name: "mooondawg", official: 300, current: 730, grand: 1030, zeros: 2, perfects: 1, rank: 17 },
-            { name: "Tootie", official: 200, current: 250, grand: 450, zeros: 6, perfects: 0, rank: 18 },
-            { name: "King Kong 619", official: 0, current: 0, grand: 0, zeros: 12, perfects: 0, rank: 19 },
-            { name: "PitaBowl", official: 0, current: 0, grand: 0, zeros: 12, perfects: 0, rank: 19 }
+            { name: "Tootie", official: 200, current: 250, grand: 450, zeros: 6, perfects: 0, rank: 18 }
         ];
         
         // Individual roasts - unhinged league style
@@ -521,11 +520,7 @@
             
             "mooondawg": "mooondawg, 2 zeros and only 1 perfect. You're in the 'it be like that sometimes' tier. We feel for you. Next time maybe don't pick with your eyes closed?",
             
-            "Tootie": "Tootie... 6 zeros. SIX. You are the undisputed mayor of the Zero Club. Your bracket wasn't just bad — it was performance art. A masterclass in creative fiction. We salute your commitment to absolute chaos. Please never change. 💀",
-            
-            "King Kong 619": "King Kong 619 — No picks submitted, 0 points, full send on the 'I'm not even gonna try' strategy. Bold. Iconic. Terrifyingly consistent. The ultimate power move. We respect the commitment to the bit even if your bracket is nonexistent.",
-            
-            "PitaBowl": "PitaBowl — Also no picks submitted. Another proud member of the 'I have better things to do than this bracket' club. We see you living your best life while the rest of us stress over group stage math. Teach us your ways."
+            "Tootie": "Tootie... 6 zeros. SIX. You are the undisputed mayor of the Zero Club. Your bracket wasn't just bad — it was performance art. A masterclass in creative fiction. We salute your commitment to absolute chaos. Please never change. 💀"
         };
         
         // Default roast template for anyone not specially written
@@ -689,7 +684,7 @@
                 card.innerHTML = `
                     <div class="flex justify-between items-start">
                         <div class="font-semibold text-lg leading-tight pr-2">${player.name}</div>
-                        <div class="flex-shrink-0 w-9 h-9 bg-red-950 text-red-400 rounded-2xl flex items-center justify-center font-mono text-xl font-bold">
+                        <div class="flex-shrink-0 w-8 h-8 bg-red-950 text-red-400 rounded-2xl flex items-center justify-center font-mono text-lg font-bold leading-none">
                             ${player.zeros}
                         </div>
                     </div>
@@ -719,7 +714,7 @@
                 card.innerHTML = `
                     <div class="flex justify-between items-start">
                         <div class="font-semibold text-lg leading-tight pr-2">${player.name}</div>
-                        <div class="flex-shrink-0 w-9 h-9 bg-emerald-950 text-emerald-400 rounded-2xl flex items-center justify-center font-mono text-xl font-bold">
+                        <div class="flex-shrink-0 w-8 h-8 bg-emerald-950 text-emerald-400 rounded-2xl flex items-center justify-center font-mono text-lg font-bold leading-none">
                             ${player.perfects}
                         </div>
                     </div>
@@ -756,9 +751,7 @@
                     { name: 'mikey10010', picks: ['GERMANY', 'ECUADOR', 'CÔTE D\'IVOIRE', 'CURAÇAO'], score: 100, status: 'partial' },
                     { name: 'gigyak', picks: ['GERMANY', 'ECUADOR', 'CURAÇAO', 'CÔTE D\'IVOIRE'], score: 50, status: 'partial' },
                     { name: 'mooondawg', picks: ['GERMANY', 'ECUADOR', 'CÔTE D\'IVOIRE', 'CURAÇAO'], score: 100, status: 'partial' },
-                    { name: 'Tootie', picks: ['ECUADOR', 'CÔTE D\'IVOIRE', 'CURAÇAO', 'GERMANY'], score: 50, status: 'partial' },
-                    { name: 'King Kong 619', picks: ['—', '—', '—', '—'], score: 0, status: 'zero' },
-                    { name: 'PitaBowl', picks: ['—', '—', '—', '—'], score: 0, status: 'zero' }
+                    { name: 'Tootie', picks: ['ECUADOR', 'CÔTE D\'IVOIRE', 'CURAÇAO', 'GERMANY'], score: 50, status: 'partial' }
                 ]
             },
             'A': {
@@ -781,9 +774,7 @@
                     { name: 'mikey10010', picks: ['CZECHIA', 'MEXICO', 'KOREA REPUBLIC', 'SOUTH AFRICA'], score: 50, status: 'partial' },
                     { name: 'gigyak', picks: ['MEXICO', 'CZECHIA', 'KOREA REPUBLIC', 'SOUTH AFRICA'], score: 100, status: 'partial' },
                     { name: 'mooondawg', picks: ['MEXICO', 'KOREA REPUBLIC', 'CZECHIA', 'SOUTH AFRICA'], score: 50, status: 'partial' },
-                    { name: 'Tootie', picks: ['CZECHIA', 'MEXICO', 'KOREA REPUBLIC', 'SOUTH AFRICA'], score: 50, status: 'partial' },
-                    { name: 'King Kong 619', picks: ['—', '—', '—', '—'], score: 0, status: 'zero' },
-                    { name: 'PitaBowl', picks: ['—', '—', '—', '—'], score: 0, status: 'zero' }
+                    { name: 'Tootie', picks: ['CZECHIA', 'MEXICO', 'KOREA REPUBLIC', 'SOUTH AFRICA'], score: 50, status: 'partial' }
                 ]
             },
             'B': {
@@ -806,9 +797,7 @@
                     { name: 'mikey10010', picks: ['SWITZERLAND', 'CANADA', 'BOSNIA-HERZEGOVINA', 'QATAR'], score: 230, status: 'perfect' },
                     { name: 'gigyak', picks: ['CANADA', 'SWITZERLAND', 'BOSNIA-HERZEGOVINA', 'QATAR'], score: 100, status: 'partial' },
                     { name: 'mooondawg', picks: ['SWITZERLAND', 'BOSNIA-HERZEGOVINA', 'QATAR', 'CANADA'], score: 50, status: 'partial' },
-                    { name: 'Tootie', picks: ['BOSNIA-HERZEGOVINA', 'CANADA', 'SWITZERLAND', 'QATAR'], score: 100, status: 'partial' },
-                    { name: 'King Kong 619', picks: ['—', '—', '—', '—'], score: 0, status: 'zero' },
-                    { name: 'PitaBowl', picks: ['—', '—', '—', '—'], score: 0, status: 'zero' }
+                    { name: 'Tootie', picks: ['BOSNIA-HERZEGOVINA', 'CANADA', 'SWITZERLAND', 'QATAR'], score: 100, status: 'partial' }
                 ]
             },
             'C': {
@@ -831,9 +820,7 @@
                     { name: 'mikey10010', picks: ['BRAZIL', 'MOROCCO', 'HAITI', 'SCOTLAND'], score: 100, status: 'partial' },
                     { name: 'gigyak', picks: ['BRAZIL', 'SCOTLAND', 'HAITI', 'MOROCCO'], score: 50, status: 'partial' },
                     { name: 'mooondawg', picks: ['BRAZIL', 'MOROCCO', 'HAITI', 'SCOTLAND'], score: 100, status: 'partial' },
-                    { name: 'Tootie', picks: ['SCOTLAND', 'HAITI', 'MOROCCO', 'BRAZIL'], score: 0, status: 'zero' },
-                    { name: 'King Kong 619', picks: ['—', '—', '—', '—'], score: 0, status: 'zero' },
-                    { name: 'PitaBowl', picks: ['—', '—', '—', '—'], score: 0, status: 'zero' }
+                    { name: 'Tootie', picks: ['SCOTLAND', 'HAITI', 'MOROCCO', 'BRAZIL'], score: 0, status: 'zero' }
                 ]
             }
         };
