@@ -159,13 +159,25 @@
             <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-5">
                 <div class="flex justify-between items-start">
                     <div>
-                        <div class="text-xs text-zinc-400 tracking-wider">TOP SCORER</div>
-                        <div class="font-semibold text-2xl mt-1">PacificOcean</div>
+                        <div class="text-xs text-zinc-400 tracking-wider">TOP PROJECTED SCORER</div>
+                        <div class="font-semibold text-2xl mt-1">Germany7Brazil1</div>
                     </div>
                     <i class="fa-solid fa-trophy text-3xl text-amber-400 mt-1"></i>
                 </div>
-                <div class="mt-4 font-mono text-4xl font-semibold tabular-nums text-emerald-400">1,780</div>
+                <div class="mt-4 font-mono text-4xl font-semibold tabular-nums text-emerald-400">1,730</div>
                 <div class="text-xs text-zinc-500">GRAND TOTAL PTS</div>
+            </div>
+
+            <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-5">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-xs text-zinc-400 tracking-wider">TOP OFFICIAL SCORE</div>
+                        <div class="font-semibold text-2xl mt-1">Alexdillon56</div>
+                    </div>
+                    <i class="fa-solid fa-chart-line text-3xl text-emerald-400 mt-1"></i>
+                </div>
+                <div class="mt-4 font-mono text-4xl font-semibold tabular-nums text-emerald-400">1,220</div>
+                <div class="text-xs text-zinc-500">OFFICIAL (A–F + H–I)</div>
             </div>
             
             <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-5">
@@ -177,7 +189,7 @@
                     <i class="fa-solid fa-skull text-3xl text-red-400 mt-1"></i>
                 </div>
                 <div class="mt-4 flex items-baseline gap-x-2">
-                    <div class="font-mono text-4xl font-semibold tabular-nums text-red-400">6</div>
+                    <div class="font-mono text-4xl font-semibold tabular-nums text-red-400">5</div>
                     <div class="text-xs text-zinc-400">groups with 0 pts</div>
                 </div>
             </div>
@@ -186,14 +198,14 @@
                 <div class="flex justify-between items-start">
                     <div>
                         <div class="text-xs text-zinc-400 tracking-wider">PERFECT CLUB</div>
-                        <div class="font-semibold text-2xl mt-1">2 tied</div>
+                        <div class="font-semibold text-2xl mt-1">Germany7Brazil1</div>
                     </div>
                     <i class="fa-solid fa-medal text-3xl text-emerald-400 mt-1"></i>
                 </div>
                 <div class="mt-4">
                     <div class="font-mono text-4xl font-semibold tabular-nums">6</div>
-                    <div class="text-xs text-zinc-400">perfect groups each</div>
-                    <div class="text-[10px] text-emerald-400/70 mt-0.5">PacificOcean &amp; Germany7Brazil1</div>
+                    <div class="text-xs text-zinc-400">perfect groups</div>
+                    <div class="text-[10px] text-emerald-400/70 mt-0.5">Only player with 6</div>
                 </div>
             </div>
             
@@ -213,7 +225,7 @@
                 </div>
                 <div class="bg-zinc-900 border border-zinc-800 rounded-2xl px-4 py-1.5 text-center">
                     <div class="text-purple-400 text-[10px] tracking-widest font-medium">LEAGUE PICK ACCURACY</div>
-                    <div class="font-mono text-xl font-semibold tabular-nums">50%</div>
+                    <div class="font-mono text-xl font-semibold tabular-nums">49%</div>
                 </div>
             </div>
 
@@ -296,6 +308,7 @@
 
             <!-- Group selector -->
             <div class="flex flex-wrap gap-2 mb-4" id="group-tabs">
+                <!-- Official Groups (A–F) -->
                 <button onclick="showGroupPicks('A')" 
                         class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
                     <span>Group A</span>
@@ -313,14 +326,41 @@
                     <span>Group D</span>
                 </button>
                 <button onclick="showGroupPicks('E')" 
-                        class="group-tab active px-5 py-2 rounded-3xl text-sm font-medium bg-emerald-600 text-white flex items-center gap-x-2">
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
                     <span>Group E</span>
                 </button>
                 <button onclick="showGroupPicks('F')" 
                         class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
                     <span>Group F</span>
                 </button>
-                <div class="text-xs text-zinc-500 self-center ml-3">G–L still current</div>
+
+                <!-- Current / In-Progress Groups (G, J–L) - Yellow -->
+                <button onclick="showGroupPicks('G')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-yellow-600 hover:bg-yellow-500 text-black flex items-center gap-x-2">
+                    <span>Group G</span>
+                </button>
+                <button onclick="showGroupPicks('J')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-yellow-600 hover:bg-yellow-500 text-black flex items-center gap-x-2">
+                    <span>Group J</span>
+                </button>
+                <button onclick="showGroupPicks('K')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-yellow-600 hover:bg-yellow-500 text-black flex items-center gap-x-2">
+                    <span>Group K</span>
+                </button>
+                <button onclick="showGroupPicks('L')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-yellow-600 hover:bg-yellow-500 text-black flex items-center gap-x-2">
+                    <span>Group L</span>
+                </button>
+
+                <!-- Newly Finalized Groups (H, I) -->
+                <button onclick="showGroupPicks('H')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
+                    <span>Group H</span>
+                </button>
+                <button onclick="showGroupPicks('I')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
+                    <span>Group I</span>
+                </button>
             </div>
 
             <div id="group-stats-bar" class="mb-2 px-1 text-xs text-zinc-400 flex items-center gap-x-4"></div>
@@ -412,19 +452,36 @@
                 </div>
 
                 <div class="mt-6 pt-5 border-t border-zinc-800">
-                    <div class="flex items-center justify-between mb-3">
-                        <div>
-                            <div class="uppercase text-xs tracking-[1.5px] text-zinc-400 font-semibold flex items-center gap-x-2">
-                                <i class="fa-solid fa-list-check"></i>
-                                <span>FINAL GROUPS PERFORMANCE (A–F)</span>
-                            </div>
-                        </div>
-                        <div id="modal-final-points" 
-                             class="font-mono text-lg font-semibold text-emerald-400 tabular-nums"></div>
+                    <div class="uppercase text-xs tracking-[1.5px] text-zinc-400 font-semibold mb-3 flex items-center gap-x-2">
+                        <i class="fa-solid fa-list-check"></i>
+                        <span>SCORE SUMMARY</span>
                     </div>
                     
-                    <div id="modal-group-breakdown" class="grid grid-cols-2 gap-2 text-sm">
-                        <!-- Populated dynamically by JS -->
+                    <div class="grid grid-cols-2 gap-3 text-sm">
+                        <!-- Perfect Groups -->
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-3">
+                            <div class="text-xs text-emerald-400/70">PERFECT GROUPS</div>
+                            <div id="modal-perfect-qty" class="font-mono text-2xl font-semibold text-emerald-400"></div>
+                        </div>
+                        
+                        <!-- Zero Groups -->
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-3">
+                            <div class="text-xs text-red-400/70">ZERO GROUPS</div>
+                            <div id="modal-zero-qty" class="font-mono text-2xl font-semibold text-red-400"></div>
+                        </div>
+                        
+                        <!-- Official Points -->
+                        <div class="bg-zinc-950 border border-emerald-600/50 rounded-2xl p-3">
+                            <div class="text-xs text-emerald-400">OFFICIAL POINTS</div>
+                            <div id="modal-official-points" class="font-mono text-2xl font-semibold text-emerald-400"></div>
+                            <div class="text-[10px] text-emerald-400/60">A–F + H–I (Final)</div>
+                        </div>
+                        
+                        <!-- Grand Total -->
+                        <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-3">
+                            <div class="text-xs text-amber-400/70">GRAND TOTAL</div>
+                            <div id="modal-grand-total" class="font-mono text-2xl font-semibold"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -450,24 +507,24 @@
         }
         
         const playersData = [
-            { name: "PacificOcean", official: 810, current: 970, grand: 1780, zeros: 1, perfects: 6, rank: 1 },
-            { name: "Germany7Brazil1", official: 940, current: 790, grand: 1730, zeros: 2, perfects: 6, rank: 2 },
-            { name: "Alexdillon56", official: 1070, current: 630, grand: 1700, zeros: 0, perfects: 5, rank: 3 },
-            { name: "smuety", official: 580, current: 990, grand: 1570, zeros: 1, perfects: 4, rank: 4 },
-            { name: "KingJeffreyFC", official: 840, current: 710, grand: 1550, zeros: 1, perfects: 5, rank: 5 },
-            { name: "AC3FTW", official: 990, current: 530, grand: 1520, zeros: 1, perfects: 4, rank: 6 },
-            { name: "Amber Thomas", official: 760, current: 760, grand: 1520, zeros: 1, perfects: 4, rank: 6 },
-            { name: "Riccardino-Alvezinho", official: 630, current: 890, grand: 1520, zeros: 0, perfects: 4, rank: 6 },
-            { name: "ATarantino92", official: 710, current: 790, grand: 1500, zeros: 2, perfects: 5, rank: 9 },
-            { name: "AndrewRasho", official: 760, current: 580, grand: 1340, zeros: 1, perfects: 3, rank: 10 },
-            { name: "Ricardoalves", official: 610, current: 710, grand: 1320, zeros: 3, perfects: 4, rank: 11 },
-            { name: "the1337CDAWG", official: 660, current: 630, grand: 1290, zeros: 2, perfects: 3, rank: 12 },
-            { name: "TIkILIsh", official: 760, current: 450, grand: 1210, zeros: 1, perfects: 2, rank: 13 },
-            { name: "gshoshani", official: 580, current: 550, grand: 1130, zeros: 1, perfects: 1, rank: 14 },
-            { name: "mikey10010", official: 630, current: 480, grand: 1110, zeros: 2, perfects: 2, rank: 15 },
-            { name: "gigyak", official: 400, current: 680, grand: 1080, zeros: 1, perfects: 1, rank: 16 },
-            { name: "mooondawg", official: 500, current: 530, grand: 1030, zeros: 2, perfects: 1, rank: 17 },
-            { name: "Tootie", official: 300, current: 150, grand: 450, zeros: 6, perfects: 0, rank: 18 }
+            { name: "Alexdillon56", official: 1220, current: 430, grand: 1650, zeros: 0, perfects: 5, rank: 1 },
+            { name: "Germany7Brazil1", official: 1170, current: 560, grand: 1730, zeros: 2, perfects: 6, rank: 2 },
+            { name: "AC3FTW", official: 1190, current: 380, grand: 1570, zeros: 1, perfects: 4, rank: 3 },
+            { name: "PacificOcean", official: 1140, current: 510, grand: 1650, zeros: 1, perfects: 5, rank: 4 },
+            { name: "KingJeffreyFC", official: 1040, current: 380, grand: 1420, zeros: 1, perfects: 4, rank: 5 },
+            { name: "ATarantino92", official: 1040, current: 330, grand: 1370, zeros: 2, perfects: 4, rank: 6 },
+            { name: "Amber Thomas", official: 960, current: 430, grand: 1390, zeros: 1, perfects: 3, rank: 7 },
+            { name: "the1337CDAWG", official: 940, current: 300, grand: 1240, zeros: 2, perfects: 3, rank: 8 },
+            { name: "TIkILIsh", official: 910, current: 250, grand: 1160, zeros: 1, perfects: 2, rank: 9 },
+            { name: "Ricardoalves", official: 890, current: 380, grand: 1270, zeros: 3, perfects: 4, rank: 10 },
+            { name: "AndrewRasho", official: 860, current: 430, grand: 1290, zeros: 1, perfects: 3, rank: 11 },
+            { name: "smuety", official: 860, current: 660, grand: 1520, zeros: 1, perfects: 4, rank: 12 },
+            { name: "Riccardino-Alvezinho", official: 830, current: 740, grand: 1570, zeros: 0, perfects: 4, rank: 13 },
+            { name: "mikey10010", official: 830, current: 150, grand: 980, zeros: 2, perfects: 2, rank: 14 },
+            { name: "gshoshani", official: 730, current: 350, grand: 1080, zeros: 1, perfects: 1, rank: 15 },
+            { name: "mooondawg", official: 650, current: 330, grand: 980, zeros: 2, perfects: 1, rank: 16 },
+            { name: "gigyak", official: 550, current: 400, grand: 950, zeros: 1, perfects: 1, rank: 17 },
+            { name: "Tootie", official: 400, current: 100, grand: 500, zeros: 5, perfects: 0, rank: 18 }
         ];
         
         const roasts = {
@@ -814,6 +871,156 @@
                     { name: 'mooondawg', picks: ['JAPAN', 'NETHERLANDS', 'SWEDEN', 'TUNISIA'], score: 100, status: 'partial' },
                     { name: 'Tootie', picks: ['TUNISIA', 'JAPAN', 'SWEDEN', 'NETHERLANDS'], score: 100, status: 'partial' }
                 ]
+            },
+
+            // Group G (Current)
+            'G': {
+                official: ['EGYPT', 'IRAN', 'BELGIUM', 'NEW ZEALAND'],
+                players: [
+                    { name: 'smuety', picks: ['BELGIUM', 'IRAN', 'EGYPT', 'NEW ZEALAND'], score: 100, status: 'partial' },
+                    { name: 'gshoshani', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 50, status: 'partial' },
+                    { name: 'gigyak', picks: ['EGYPT', 'NEW ZEALAND', 'BELGIUM', 'IRAN'], score: 100, status: 'partial' },
+                    { name: 'AC3FTW', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 50, status: 'partial' },
+                    { name: 'AndrewRasho', picks: ['BELGIUM', 'IRAN', 'EGYPT', 'NEW ZEALAND'], score: 100, status: 'partial' },
+                    { name: 'the1337CDAWG', picks: ['BELGIUM', 'EGYPT', 'NEW ZEALAND', 'IRAN'], score: 0, status: 'zero' },
+                    { name: 'KingJeffreyFC', picks: ['BELGIUM', 'EGYPT', 'NEW ZEALAND', 'IRAN'], score: 0, status: 'zero' },
+                    { name: 'Tootie', picks: ['EGYPT', 'NEW ZEALAND', 'BELGIUM', 'IRAN'], score: 100, status: 'partial' },
+                    { name: 'Alexdillon56', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 50, status: 'partial' },
+                    { name: 'PacificOcean', picks: ['BELGIUM', 'NEW ZEALAND', 'EGYPT', 'IRAN'], score: 0, status: 'zero' },
+                    { name: 'mikey10010', picks: ['BELGIUM', 'EGYPT', 'NEW ZEALAND', 'IRAN'], score: 0, status: 'zero' },
+                    { name: 'Ricardoalves', picks: ['EGYPT', 'BELGIUM', 'NEW ZEALAND', 'IRAN'], score: 50, status: 'partial' },
+                    { name: 'Amber Thomas', picks: ['BELGIUM', 'IRAN', 'EGYPT', 'NEW ZEALAND'], score: 100, status: 'partial' },
+                    { name: 'mooondawg', picks: ['BELGIUM', 'NEW ZEALAND', 'EGYPT', 'IRAN'], score: 0, status: 'zero' },
+                    { name: 'TIkILIsh', picks: ['BELGIUM', 'IRAN', 'EGYPT', 'NEW ZEALAND'], score: 100, status: 'partial' },
+                    { name: 'Riccardino-Alvezinho', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 50, status: 'partial' },
+                    { name: 'ATarantino92', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 50, status: 'partial' },
+                    { name: 'Germany7Brazil1', picks: ['BELGIUM', 'IRAN', 'EGYPT', 'NEW ZEALAND'], score: 100, status: 'partial' }
+                ]
+            },
+
+            // Group J (Current)
+            'J': {
+                official: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'],
+                players: [
+                    { name: 'smuety', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' },
+                    { name: 'gshoshani', picks: ['ARGENTINA', 'ALGERIA', 'AUSTRIA', 'JORDAN'], score: 100, status: 'partial' },
+                    { name: 'gigyak', picks: ['ARGENTINA', 'ALGERIA', 'AUSTRIA', 'JORDAN'], score: 100, status: 'partial' },
+                    { name: 'AC3FTW', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' },
+                    { name: 'AndrewRasho', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' },
+                    { name: 'the1337CDAWG', picks: ['ARGENTINA', 'ALGERIA', 'AUSTRIA', 'JORDAN'], score: 100, status: 'partial' },
+                    { name: 'KingJeffreyFC', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' },
+                    { name: 'Tootie', picks: ['AUSTRIA', 'JORDAN', 'ARGENTINA', 'ALGERIA'], score: 0, status: 'zero' },
+                    { name: 'Alexdillon56', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' },
+                    { name: 'PacificOcean', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' },
+                    { name: 'mikey10010', picks: ['ARGENTINA', 'ALGERIA', 'AUSTRIA', 'JORDAN'], score: 100, status: 'partial' },
+                    { name: 'Ricardoalves', picks: ['ARGENTINA', 'ALGERIA', 'AUSTRIA', 'JORDAN'], score: 100, status: 'partial' },
+                    { name: 'Amber Thomas', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' },
+                    { name: 'mooondawg', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' },
+                    { name: 'TIkILIsh', picks: ['ARGENTINA', 'ALGERIA', 'AUSTRIA', 'JORDAN'], score: 100, status: 'partial' },
+                    { name: 'Riccardino-Alvezinho', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' },
+                    { name: 'ATarantino92', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' },
+                    { name: 'Germany7Brazil1', picks: ['ARGENTINA', 'AUSTRIA', 'ALGERIA', 'JORDAN'], score: 230, status: 'perfect' }
+                ]
+            },
+
+            // Group K (Current)
+            'K': {
+                official: ['COLOMBIA', 'PORTUGAL', 'CONGO DR', 'UZBEKISTAN'],
+                players: [
+                    { name: 'smuety', picks: ['COLOMBIA', 'PORTUGAL', 'CONGO DR', 'UZBEKISTAN'], score: 230, status: 'perfect' },
+                    { name: 'gshoshani', picks: ['PORTUGAL', 'COLOMBIA', 'CONGO DR', 'UZBEKISTAN'], score: 100, status: 'partial' },
+                    { name: 'gigyak', picks: ['PORTUGAL', 'COLOMBIA', 'CONGO DR', 'UZBEKISTAN'], score: 100, status: 'partial' },
+                    { name: 'AC3FTW', picks: ['PORTUGAL', 'COLOMBIA', 'UZBEKISTAN', 'CONGO DR'], score: 0, status: 'zero' },
+                    { name: 'AndrewRasho', picks: ['PORTUGAL', 'COLOMBIA', 'UZBEKISTAN', 'CONGO DR'], score: 0, status: 'zero' },
+                    { name: 'the1337CDAWG', picks: ['PORTUGAL', 'COLOMBIA', 'CONGO DR', 'UZBEKISTAN'], score: 100, status: 'partial' },
+                    { name: 'KingJeffreyFC', picks: ['PORTUGAL', 'COLOMBIA', 'CONGO DR', 'UZBEKISTAN'], score: 100, status: 'partial' },
+                    { name: 'Tootie', picks: ['UZBEKISTAN', 'COLOMBIA', 'PORTUGAL', 'CONGO DR'], score: 0, status: 'zero' },
+                    { name: 'Alexdillon56', picks: ['COLOMBIA', 'PORTUGAL', 'UZBEKISTAN', 'CONGO DR'], score: 100, status: 'partial' },
+                    { name: 'PacificOcean', picks: ['COLOMBIA', 'PORTUGAL', 'CONGO DR', 'UZBEKISTAN'], score: 230, status: 'perfect' },
+                    { name: 'mikey10010', picks: ['PORTUGAL', 'COLOMBIA', 'UZBEKISTAN', 'CONGO DR'], score: 0, status: 'zero' },
+                    { name: 'Ricardoalves', picks: ['PORTUGAL', 'COLOMBIA', 'UZBEKISTAN', 'CONGO DR'], score: 0, status: 'zero' },
+                    { name: 'Amber Thomas', picks: ['PORTUGAL', 'COLOMBIA', 'UZBEKISTAN', 'CONGO DR'], score: 0, status: 'zero' },
+                    { name: 'mooondawg', picks: ['PORTUGAL', 'COLOMBIA', 'UZBEKISTAN', 'CONGO DR'], score: 0, status: 'zero' },
+                    { name: 'TIkILIsh', picks: ['PORTUGAL', 'COLOMBIA', 'UZBEKISTAN', 'CONGO DR'], score: 0, status: 'zero' },
+                    { name: 'Riccardino-Alvezinho', picks: ['COLOMBIA', 'PORTUGAL', 'CONGO DR', 'UZBEKISTAN'], score: 230, status: 'perfect' },
+                    { name: 'ATarantino92', picks: ['PORTUGAL', 'COLOMBIA', 'UZBEKISTAN', 'CONGO DR'], score: 0, status: 'zero' },
+                    { name: 'Germany7Brazil1', picks: ['PORTUGAL', 'COLOMBIA', 'UZBEKISTAN', 'CONGO DR'], score: 0, status: 'zero' }
+                ]
+            },
+
+            // Group L (Current)
+            'L': {
+                official: ['ENGLAND', 'GHANA', 'CROATIA', 'PANAMA'],
+                players: [
+                    { name: 'smuety', picks: ['ENGLAND', 'CROATIA', 'GHANA', 'PANAMA'], score: 100, status: 'partial' },
+                    { name: 'gshoshani', picks: ['ENGLAND', 'CROATIA', 'GHANA', 'PANAMA'], score: 100, status: 'partial' },
+                    { name: 'gigyak', picks: ['ENGLAND', 'CROATIA', 'GHANA', 'PANAMA'], score: 100, status: 'partial' },
+                    { name: 'AC3FTW', picks: ['ENGLAND', 'CROATIA', 'GHANA', 'PANAMA'], score: 100, status: 'partial' },
+                    { name: 'AndrewRasho', picks: ['ENGLAND', 'CROATIA', 'GHANA', 'PANAMA'], score: 100, status: 'partial' },
+                    { name: 'the1337CDAWG', picks: ['ENGLAND', 'CROATIA', 'GHANA', 'PANAMA'], score: 100, status: 'partial' },
+                    { name: 'KingJeffreyFC', picks: ['CROATIA', 'ENGLAND', 'GHANA', 'PANAMA'], score: 50, status: 'partial' },
+                    { name: 'Tootie', picks: ['PANAMA', 'CROATIA', 'ENGLAND', 'GHANA'], score: 0, status: 'zero' },
+                    { name: 'Alexdillon56', picks: ['ENGLAND', 'CROATIA', 'PANAMA', 'GHANA'], score: 50, status: 'partial' },
+                    { name: 'PacificOcean', picks: ['ENGLAND', 'CROATIA', 'PANAMA', 'GHANA'], score: 50, status: 'partial' },
+                    { name: 'mikey10010', picks: ['ENGLAND', 'CROATIA', 'PANAMA', 'GHANA'], score: 50, status: 'partial' },
+                    { name: 'Ricardoalves', picks: ['ENGLAND', 'GHANA', 'CROATIA', 'PANAMA'], score: 230, status: 'perfect' },
+                    { name: 'Amber Thomas', picks: ['ENGLAND', 'CROATIA', 'GHANA', 'PANAMA'], score: 100, status: 'partial' },
+                    { name: 'mooondawg', picks: ['ENGLAND', 'CROATIA', 'GHANA', 'PANAMA'], score: 100, status: 'partial' },
+                    { name: 'TIkILIsh', picks: ['ENGLAND', 'CROATIA', 'PANAMA', 'GHANA'], score: 50, status: 'partial' },
+                    { name: 'Riccardino-Alvezinho', picks: ['ENGLAND', 'GHANA', 'CROATIA', 'PANAMA'], score: 230, status: 'perfect' },
+                    { name: 'ATarantino92', picks: ['ENGLAND', 'CROATIA', 'PANAMA', 'GHANA'], score: 50, status: 'partial' },
+                    { name: 'Germany7Brazil1', picks: ['ENGLAND', 'GHANA', 'CROATIA', 'PANAMA'], score: 230, status: 'perfect' }
+                ]
+            },
+
+            // Group H — FINAL
+            'H': {
+                official: ['SPAIN', 'CABO VERDE', 'URUGUAY', 'SAUDI ARABIA'],
+                players: [
+                    { name: 'smuety', picks: ['SPAIN', 'URUGUAY', 'SAUDI ARABIA', 'CABO VERDE'], score: 50, status: 'partial' },
+                    { name: 'gshoshani', picks: ['SPAIN', 'URUGUAY', 'CABO VERDE', 'SAUDI ARABIA'], score: 100, status: 'partial' },
+                    { name: 'gigyak', picks: ['SPAIN', 'URUGUAY', 'CABO VERDE', 'SAUDI ARABIA'], score: 100, status: 'partial' },
+                    { name: 'AC3FTW', picks: ['SPAIN', 'SAUDI ARABIA', 'URUGUAY', 'CABO VERDE'], score: 100, status: 'partial' },
+                    { name: 'AndrewRasho', picks: ['SPAIN', 'URUGUAY', 'SAUDI ARABIA', 'CABO VERDE'], score: 50, status: 'partial' },
+                    { name: 'the1337CDAWG', picks: ['SPAIN', 'URUGUAY', 'CABO VERDE', 'SAUDI ARABIA'], score: 100, status: 'partial' },
+                    { name: 'KingJeffreyFC', picks: ['SPAIN', 'URUGUAY', 'CABO VERDE', 'SAUDI ARABIA'], score: 100, status: 'partial' },
+                    { name: 'Tootie', picks: ['URUGUAY', 'CABO VERDE', 'SAUDI ARABIA', 'SPAIN'], score: 50, status: 'partial' },
+                    { name: 'Alexdillon56', picks: ['SPAIN', 'URUGUAY', 'SAUDI ARABIA', 'CABO VERDE'], score: 50, status: 'partial' },
+                    { name: 'PacificOcean', picks: ['SPAIN', 'URUGUAY', 'CABO VERDE', 'SAUDI ARABIA'], score: 100, status: 'partial' },
+                    { name: 'mikey10010', picks: ['SPAIN', 'URUGUAY', 'CABO VERDE', 'SAUDI ARABIA'], score: 100, status: 'partial' },
+                    { name: 'Ricardoalves', picks: ['SPAIN', 'URUGUAY', 'SAUDI ARABIA', 'CABO VERDE'], score: 50, status: 'partial' },
+                    { name: 'Amber Thomas', picks: ['SPAIN', 'URUGUAY', 'CABO VERDE', 'SAUDI ARABIA'], score: 100, status: 'partial' },
+                    { name: 'mooondawg', picks: ['SPAIN', 'URUGUAY', 'SAUDI ARABIA', 'CABO VERDE'], score: 50, status: 'partial' },
+                    { name: 'TIkILIsh', picks: ['SPAIN', 'SAUDI ARABIA', 'CABO VERDE', 'URUGUAY'], score: 50, status: 'partial' },
+                    { name: 'Riccardino-Alvezinho', picks: ['SPAIN', 'SAUDI ARABIA', 'URUGUAY', 'CABO VERDE'], score: 100, status: 'partial' },
+                    { name: 'ATarantino92', picks: ['SPAIN', 'URUGUAY', 'CABO VERDE', 'SAUDI ARABIA'], score: 100, status: 'partial' },
+                    { name: 'Germany7Brazil1', picks: ['URUGUAY', 'SPAIN', 'SAUDI ARABIA', 'CABO VERDE'], score: 0, status: 'zero' }
+                ]
+            },
+
+            // Group I — FINAL
+            'I': {
+                official: ['FRANCE', 'NORWAY', 'SENEGAL', 'IRAQ'],
+                players: [
+                    { name: 'smuety', picks: ['FRANCE', 'NORWAY', 'SENEGAL', 'IRAQ'], score: 230, status: 'perfect' },
+                    { name: 'gshoshani', picks: ['FRANCE', 'NORWAY', 'IRAQ', 'SENEGAL'], score: 100, status: 'partial' },
+                    { name: 'gigyak', picks: ['FRANCE', 'SENEGAL', 'IRAQ', 'NORWAY'], score: 50, status: 'partial' },
+                    { name: 'AC3FTW', picks: ['FRANCE', 'SENEGAL', 'NORWAY', 'IRAQ'], score: 100, status: 'partial' },
+                    { name: 'AndrewRasho', picks: ['FRANCE', 'SENEGAL', 'IRAQ', 'NORWAY'], score: 50, status: 'partial' },
+                    { name: 'the1337CDAWG', picks: ['FRANCE', 'NORWAY', 'SENEGAL', 'IRAQ'], score: 230, status: 'perfect' },
+                    { name: 'KingJeffreyFC', picks: ['FRANCE', 'SENEGAL', 'NORWAY', 'IRAQ'], score: 100, status: 'partial' },
+                    { name: 'Tootie', picks: ['IRAQ', 'NORWAY', 'FRANCE', 'SENEGAL'], score: 50, status: 'partial' },
+                    { name: 'Alexdillon56', picks: ['FRANCE', 'NORWAY', 'IRAQ', 'SENEGAL'], score: 100, status: 'partial' },
+                    { name: 'PacificOcean', picks: ['FRANCE', 'NORWAY', 'SENEGAL', 'IRAQ'], score: 230, status: 'perfect' },
+                    { name: 'mikey10010', picks: ['FRANCE', 'NORWAY', 'IRAQ', 'SENEGAL'], score: 100, status: 'partial' },
+                    { name: 'Ricardoalves', picks: ['FRANCE', 'NORWAY', 'SENEGAL', 'IRAQ'], score: 230, status: 'perfect' },
+                    { name: 'Amber Thomas', picks: ['FRANCE', 'SENEGAL', 'NORWAY', 'IRAQ'], score: 100, status: 'partial' },
+                    { name: 'mooondawg', picks: ['FRANCE', 'SENEGAL', 'NORWAY', 'IRAQ'], score: 100, status: 'partial' },
+                    { name: 'TIkILIsh', picks: ['FRANCE', 'SENEGAL', 'NORWAY', 'IRAQ'], score: 100, status: 'partial' },
+                    { name: 'Riccardino-Alvezinho', picks: ['FRANCE', 'SENEGAL', 'NORWAY', 'IRAQ'], score: 100, status: 'partial' },
+                    { name: 'ATarantino92', picks: ['FRANCE', 'NORWAY', 'SENEGAL', 'IRAQ'], score: 230, status: 'perfect' },
+                    { name: 'Germany7Brazil1', picks: ['FRANCE', 'NORWAY', 'SENEGAL', 'IRAQ'], score: 230, status: 'perfect' }
+                ]
             }
         };
 
@@ -838,6 +1045,21 @@
             tbody.innerHTML = '';
 
             if (!data || data.players.length === 0) {
+                // Handle in-progress groups (G–L)
+                if (['G','H','I','J','K','L'].includes(groupKey)) {
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="7" class="px-5 py-10 text-center">
+                                <div class="text-yellow-400 font-semibold mb-1">Group ${groupKey} is still in progress</div>
+                                <div class="text-zinc-400 text-sm">Picks and results will appear here once the group is finalized.</div>
+                            </td>
+                        </tr>
+                    `;
+                    // Clear stats bar for in-progress groups
+                    document.getElementById('group-stats-bar').innerHTML = '';
+                    return;
+                }
+                
                 tbody.innerHTML = `<tr><td colspan="7" class="px-5 py-8 text-center text-zinc-400">No detailed picks available for Group ${groupKey} yet.</td></tr>`;
                 return;
             }
@@ -952,62 +1174,11 @@
             const roastText = roasts[player.name] || getDefaultRoast(player);
             document.getElementById('modal-roast').innerHTML = roastText;
             
-            const finalPointsEl = document.getElementById('modal-final-points');
-            const breakdownEl = document.getElementById('modal-group-breakdown');
-            breakdownEl.innerHTML = '';
-            
-            finalPointsEl.textContent = player.official + ' pts';
-            
-            // Honest breakdown - show known perfects and zeros clearly
-            const perfectCount = player.perfects;
-            const zeroCount = player.zeros;
-            const mixedCount = 6 - perfectCount - zeroCount;
-            
-            // Create summary cards instead of fake per-group scores
-            const summaryItems = [];
-            
-            if (perfectCount > 0) {
-                summaryItems.push({
-                    label: `${perfectCount} Perfect Group${perfectCount > 1 ? 's' : ''}`,
-                    value: `${perfectCount * 230} pts`,
-                    color: 'emerald',
-                    icon: 'fa-medal'
-                });
-            }
-            
-            if (zeroCount > 0) {
-                summaryItems.push({
-                    label: `${zeroCount} Zero Group${zeroCount > 1 ? 's' : ''}`,
-                    value: `0 pts`,
-                    color: 'red',
-                    icon: 'fa-skull'
-                });
-            }
-            
-            if (mixedCount > 0) {
-                const mixedPoints = player.official - (perfectCount * 230);
-                summaryItems.push({
-                    label: `${mixedCount} Partial Group${mixedCount > 1 ? 's' : ''}`,
-                    value: `${mixedPoints} pts`,
-                    color: 'amber',
-                    icon: 'fa-chart-line'
-                });
-            }
-            
-            summaryItems.forEach(item => {
-                const div = document.createElement('div');
-                div.className = `bg-zinc-950 border border-zinc-800 rounded-2xl p-3 flex flex-col`;
-                div.innerHTML = `
-                    <div class="flex items-center justify-between">
-                        <div class="font-semibold text-sm">${item.label}</div>
-                        <i class="fa-solid ${item.icon} text-${item.color}-400"></i>
-                    </div>
-                    <div class="mt-1 text-xs">
-                        <span class="font-mono text-${item.color}-400">${item.value}</span>
-                    </div>
-                `;
-                breakdownEl.appendChild(div);
-            });
+            // Populate new clean Score Summary
+            document.getElementById('modal-perfect-qty').textContent = player.perfects;
+            document.getElementById('modal-zero-qty').textContent = player.zeros;
+            document.getElementById('modal-official-points').textContent = player.official + ' pts';
+            document.getElementById('modal-grand-total').textContent = player.grand + ' pts';
             
             document.getElementById('roast-modal').classList.remove('hidden');
             document.getElementById('roast-modal').classList.add('flex');
