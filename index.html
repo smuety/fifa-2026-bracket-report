@@ -160,11 +160,11 @@
                 <div class="flex justify-between items-start">
                     <div>
                         <div class="text-xs text-zinc-400 tracking-wider">TOP PROJECTED SCORER</div>
-                        <div class="font-semibold text-2xl mt-1">Germany7Brazil1</div>
+                        <div class="font-semibold text-2xl mt-1">Alexdillon56</div>
                     </div>
                     <i class="fa-solid fa-trophy text-3xl text-amber-400 mt-1"></i>
                 </div>
-                <div class="mt-4 font-mono text-4xl font-semibold tabular-nums text-emerald-400">1,730</div>
+                <div class="mt-4 font-mono text-4xl font-semibold tabular-nums text-emerald-400">1,830</div>
                 <div class="text-xs text-zinc-500">GRAND TOTAL PTS</div>
             </div>
 
@@ -176,8 +176,8 @@
                     </div>
                     <i class="fa-solid fa-chart-line text-3xl text-emerald-400 mt-1"></i>
                 </div>
-                <div class="mt-4 font-mono text-4xl font-semibold tabular-nums text-emerald-400">1,220</div>
-                <div class="text-xs text-zinc-500">OFFICIAL (A–F + H–I)</div>
+                <div class="mt-4 font-mono text-4xl font-semibold tabular-nums text-emerald-400">1,450</div>
+                <div class="text-xs text-zinc-500">OFFICIAL (A–I)</div>
             </div>
             
             <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-5">
@@ -189,7 +189,7 @@
                     <i class="fa-solid fa-skull text-3xl text-red-400 mt-1"></i>
                 </div>
                 <div class="mt-4 flex items-baseline gap-x-2">
-                    <div class="font-mono text-4xl font-semibold tabular-nums text-red-400">5</div>
+                    <div class="font-mono text-4xl font-semibold tabular-nums text-red-400">6</div>
                     <div class="text-xs text-zinc-400">groups with 0 pts</div>
                 </div>
             </div>
@@ -198,14 +198,14 @@
                 <div class="flex justify-between items-start">
                     <div>
                         <div class="text-xs text-zinc-400 tracking-wider">PERFECT CLUB</div>
-                        <div class="font-semibold text-2xl mt-1">Germany7Brazil1</div>
+                        <div class="font-semibold text-2xl mt-1">Alexdillon56 &amp; Germany7Brazil1</div>
                     </div>
                     <i class="fa-solid fa-medal text-3xl text-emerald-400 mt-1"></i>
                 </div>
                 <div class="mt-4">
                     <div class="font-mono text-4xl font-semibold tabular-nums">6</div>
-                    <div class="text-xs text-zinc-400">perfect groups</div>
-                    <div class="text-[10px] text-emerald-400/70 mt-0.5">Only player with 6</div>
+                    <div class="text-xs text-zinc-400">perfect groups each</div>
+                    <div class="text-[10px] text-emerald-400/70 mt-0.5">2 players tied</div>
                 </div>
             </div>
             
@@ -221,18 +221,22 @@
                 </div>
                 <div class="bg-zinc-900 border border-zinc-800 rounded-2xl px-4 py-2 text-center flex-1 sm:flex-none">
                     <div class="text-amber-400 text-[10px] tracking-widest font-medium">CURRENT</div>
-                    <div class="font-mono text-xl font-semibold tabular-nums">G–L</div>
+                    <div class="font-mono text-xl font-semibold tabular-nums">Group J</div>
                 </div>
                 <div class="bg-zinc-900 border border-zinc-800 rounded-2xl px-4 py-2 text-center flex-1 sm:flex-none">
                     <div class="text-purple-400 text-[10px] tracking-widest font-medium">LEAGUE PICK ACCURACY</div>
-                    <div class="font-mono text-xl font-semibold tabular-nums">49%</div>
+                    <div class="font-mono text-xl font-semibold tabular-nums">52%</div>
                 </div>
             </div>
 
             <div class="flex items-center justify-between mb-4 px-1">
-                <div class="flex items-center gap-x-3">
+                <div class="flex items-center gap-x-3 cursor-pointer hover:bg-zinc-900/60 px-3 py-1.5 -mx-3 rounded-2xl transition-colors" 
+                      
+                     data-target="current-standings-content"
+                     title="Click to collapse/expand section">
                     <i class="fa-solid fa-list-ol text-emerald-400 text-xl"></i>
                     <h3 class="section-header">Current Standings</h3>
+                    <i class="fa-solid fa-chevron-down section-chevron ml-2 text-lg text-emerald-400 transition-transform duration-200"></i>
                 </div>
                 <div class="relative w-64">
                     <input id="search-input" 
@@ -251,7 +255,7 @@
                             <th class="py-4 px-6 text-left w-12" data-sort="rank">RANK</th>
                             <th class="py-4 px-6 text-left" data-sort="name">PLAYER</th>
                             <th class="py-4 px-4 text-right font-semibold text-emerald-400" data-sort="official">OFFICIAL<br><span class="text-[9px] normal-case tracking-normal text-emerald-400/70">(A–F)</span></th>
-                            <th class="py-4 px-4 text-right text-zinc-500" data-sort="current">CURRENT<br><span class="text-[9px] normal-case tracking-normal">(G–L)</span></th>
+                            <th class="py-4 px-4 text-right text-zinc-500" data-sort="current">CURRENT<br><span class="text-[9px] normal-case tracking-normal">(Group J)</span></th>
                             <th class="py-4 px-6 text-right font-semibold" data-sort="grand">GRAND TOTAL</th>
                             <th class="py-4 px-4 text-center w-20" data-sort="perfects"><i class="fa-solid fa-medal text-emerald-400"></i></th>
                             <th class="py-4 px-4 text-center w-20" data-sort="zeros"><i class="fa-solid fa-skull text-red-400"></i></th>
@@ -266,49 +270,89 @@
             <p class="text-center text-xs text-zinc-500 mt-3">Click any player name for their personalized roast + stats</p>
         </div>
 
-        <!-- ZERO CLUB -->
+        <!-- CLUB STANDINGS (Combined Perfect + Zero Club) -->
         <div class="mb-14">
-            <div class="flex items-center gap-x-3 mb-5 px-1">
-                <i class="fa-solid fa-skull text-red-400 text-2xl"></i>
-                <div>
-                    <h3 class="section-header">Zero Club Hall of Shame</h3>
-                    <p class="text-xs text-zinc-400 -mt-0.5">Players who went full chaos mode on at least one group</p>
+            <div class="flex items-center gap-x-3 mb-4 px-1 cursor-pointer hover:bg-zinc-900/60 px-3 py-1.5 -mx-3 rounded-2xl transition-colors" 
+                  
+                 data-target="club-standings-content"
+                 title="Click to collapse/expand section">
+                <i class="fa-solid fa-tachometer-alt text-emerald-400 text-2xl"></i>
+                <div class="flex items-center gap-x-2">
+                    <h3 class="section-header">Club Standings</h3>
+                    <i class="fa-solid fa-chevron-down section-chevron ml-2 text-lg text-emerald-400 transition-transform duration-200"></i>
                 </div>
             </div>
-            
-            <div id="zero-club-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
-                <!-- Populated by JS -->
+            <p class="text-xs text-zinc-400 -mt-1 mb-4 px-1">Perfect Club vs Zero Club — the heroes and the beautiful disasters</p>
+
+            <div id="club-standings-content" class="section-content">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Perfect Club -->
+                <div>
+                    <div class="flex items-center gap-x-2 mb-3 px-1">
+                        <i class="fa-solid fa-medal text-emerald-400"></i>
+                        <h4 class="font-semibold text-lg">Perfect Club</h4>
+                    </div>
+                    <p class="text-xs text-zinc-400 mb-3 px-1">Legends who nailed entire groups (all 4 teams in correct order)</p>
+                    
+                    <div id="perfect-club-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Zero Club -->
+                <div>
+                    <div class="flex items-center gap-x-2 mb-3 px-1">
+                        <i class="fa-solid fa-skull text-red-400"></i>
+                        <h4 class="font-semibold text-lg">Zero Club Hall of Shame</h4>
+                    </div>
+                    <p class="text-xs text-zinc-400 mb-3 px-1">Players who went full chaos mode on at least one group</p>
+                    
+                    <div id="zero-club-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                        <!-- Populated by JS -->
+                    </div>
+                    <p class="text-center text-xs text-zinc-500 mt-3">Click any card to see their roast.</p>
+                </div>
+
             </div>
-            <p class="text-center text-xs text-zinc-500 mt-4">Click a card to see their roast.</p>
+            </div> <!-- end .section-content -->
         </div>
 
-        <!-- PERFECT CLUB -->
-        <div>
+        <!-- THIRD PLACE PICKS & SCORING (Placeholder) -->
+        <div class="mb-14">
             <div class="flex items-center gap-x-3 mb-5 px-1">
-                <i class="fa-solid fa-medal text-emerald-400 text-2xl"></i>
+                <i class="fa-solid fa-medal text-amber-400 text-2xl"></i>
                 <div>
-                    <h3 class="section-header">Perfect Club</h3>
-                    <p class="text-xs text-zinc-400 -mt-0.5">Legends who nailed entire groups (all 4 teams correct order)</p>
+                    <h3 class="section-header">Third Place Picks & Scoring</h3>
+                    <p class="text-xs text-zinc-400 -mt-0.5">Coming soon when 3rd place matches are finalized</p>
                 </div>
             </div>
             
-            <div id="perfect-club-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
-                <!-- Populated by JS -->
+            <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 text-center">
+                <div class="text-zinc-400">
+                    <i class="fa-solid fa-clock text-3xl mb-3"></i>
+                    <p class="text-lg">Third Place section will be added here</p>
+                    <p class="text-sm mt-1">When the 3rd place matches are played and results are in, we'll add the picks, scoring, and roasts for this stage.</p>
+                </div>
             </div>
         </div>
 
         <!-- Picks by Group Explorer -->
         <div class="mt-14">
             <div class="flex items-center justify-between mb-4 px-1">
-                <div>
+                <div class="flex items-center gap-x-3 cursor-pointer hover:bg-zinc-900/60 px-3 py-1.5 -mx-3 rounded-2xl transition-colors" 
+                      
+                     data-target="picks-by-group-content"
+                     title="Click to collapse/expand section">
                     <h3 class="section-header">Picks by Group</h3>
-                    <p class="text-zinc-400 text-sm">See exactly what each player picked vs the official order (green = correct position)</p>
+                    <i class="fa-solid fa-chevron-down section-chevron ml-2 text-lg text-emerald-400 transition-transform duration-200"></i>
                 </div>
+                <p class="text-zinc-400 text-sm hidden md:block">See exactly what each player picked vs the official order (green = correct position)</p>
             </div>
 
             <!-- Group selector -->
             <div class="flex flex-wrap gap-2 mb-4" id="group-tabs">
-                <!-- Official Groups (A–F) -->
+                <!-- All Groups in Alphabetical Order -->
                 <button onclick="showGroupPicks('A')" 
                         class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
                     <span>Group A</span>
@@ -333,26 +377,10 @@
                         class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
                     <span>Group F</span>
                 </button>
-
-                <!-- Current / In-Progress Groups (G, J–L) - Yellow -->
                 <button onclick="showGroupPicks('G')" 
-                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-yellow-600 hover:bg-yellow-500 text-black flex items-center gap-x-2">
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
                     <span>Group G</span>
                 </button>
-                <button onclick="showGroupPicks('J')" 
-                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-yellow-600 hover:bg-yellow-500 text-black flex items-center gap-x-2">
-                    <span>Group J</span>
-                </button>
-                <button onclick="showGroupPicks('K')" 
-                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-yellow-600 hover:bg-yellow-500 text-black flex items-center gap-x-2">
-                    <span>Group K</span>
-                </button>
-                <button onclick="showGroupPicks('L')" 
-                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-yellow-600 hover:bg-yellow-500 text-black flex items-center gap-x-2">
-                    <span>Group L</span>
-                </button>
-
-                <!-- Newly Finalized Groups (H, I) -->
                 <button onclick="showGroupPicks('H')" 
                         class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
                     <span>Group H</span>
@@ -361,8 +389,21 @@
                         class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
                     <span>Group I</span>
                 </button>
+                <button onclick="showGroupPicks('J')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
+                    <span>Group J</span>
+                </button>
+                <button onclick="showGroupPicks('K')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
+                    <span>Group K</span>
+                </button>
+                <button onclick="showGroupPicks('L')" 
+                        class="group-tab px-5 py-2 rounded-3xl text-sm font-medium bg-zinc-800 hover:bg-zinc-700 flex items-center gap-x-2">
+                    <span>Group L</span>
+                </button>
             </div>
 
+            <div id="picks-by-group-content" class="section-content">
             <div id="group-stats-bar" class="mb-2 px-1 text-xs text-zinc-400 flex items-center gap-x-4"></div>
 
             <div class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
@@ -419,7 +460,7 @@
                         <div id="modal-official" class="font-mono text-3xl font-bold tabular-nums text-emerald-400 mt-0.5"></div>
                     </div>
                     <div class="stat-badge rounded-2xl p-3 text-center">
-                        <div class="text-[10px] text-amber-400/70 tracking-widest">CURRENT (G-L)</div>
+                        <div class="text-[10px] text-amber-400/70 tracking-widest">CURRENT (Group J)</div>
                         <div id="modal-current" class="font-mono text-3xl font-semibold tabular-nums text-amber-400"></div>
                     </div>
                     <div class="stat-badge rounded-2xl p-3 text-center">
@@ -507,24 +548,24 @@
         }
         
         const playersData = [
-            { name: "Alexdillon56", official: 1220, current: 430, grand: 1650, zeros: 0, perfects: 5, rank: 1 },
-            { name: "Germany7Brazil1", official: 1170, current: 560, grand: 1730, zeros: 2, perfects: 6, rank: 2 },
-            { name: "AC3FTW", official: 1190, current: 380, grand: 1570, zeros: 1, perfects: 4, rank: 3 },
-            { name: "PacificOcean", official: 1140, current: 510, grand: 1650, zeros: 1, perfects: 5, rank: 4 },
-            { name: "KingJeffreyFC", official: 1040, current: 380, grand: 1420, zeros: 1, perfects: 4, rank: 5 },
-            { name: "ATarantino92", official: 1040, current: 330, grand: 1370, zeros: 2, perfects: 4, rank: 6 },
-            { name: "Amber Thomas", official: 960, current: 430, grand: 1390, zeros: 1, perfects: 3, rank: 7 },
-            { name: "the1337CDAWG", official: 940, current: 300, grand: 1240, zeros: 2, perfects: 3, rank: 8 },
-            { name: "TIkILIsh", official: 910, current: 250, grand: 1160, zeros: 1, perfects: 2, rank: 9 },
-            { name: "Ricardoalves", official: 890, current: 380, grand: 1270, zeros: 3, perfects: 4, rank: 10 },
-            { name: "AndrewRasho", official: 860, current: 430, grand: 1290, zeros: 1, perfects: 3, rank: 11 },
-            { name: "smuety", official: 860, current: 660, grand: 1520, zeros: 1, perfects: 4, rank: 12 },
-            { name: "Riccardino-Alvezinho", official: 830, current: 740, grand: 1570, zeros: 0, perfects: 4, rank: 13 },
-            { name: "mikey10010", official: 830, current: 150, grand: 980, zeros: 2, perfects: 2, rank: 14 },
-            { name: "gshoshani", official: 730, current: 350, grand: 1080, zeros: 1, perfects: 1, rank: 15 },
-            { name: "mooondawg", official: 650, current: 330, grand: 980, zeros: 2, perfects: 1, rank: 16 },
-            { name: "gigyak", official: 550, current: 400, grand: 950, zeros: 1, perfects: 1, rank: 17 },
-            { name: "Tootie", official: 400, current: 100, grand: 500, zeros: 5, perfects: 0, rank: 18 }
+            { name: "AC3FTW", official: 1650, current: 230, grand: 1880, zeros: 1, perfects: 6, rank: 1 },
+            { name: "Alexdillon56", official: 1650, current: 230, grand: 1880, zeros: 0, perfects: 7, rank: 2 },
+            { name: "PacificOcean", official: 1520, current: 100, grand: 1620, zeros: 0, perfects: 5, rank: 3 },
+            { name: "smuety", official: 1420, current: 230, grand: 1650, zeros: 1, perfects: 5, rank: 4 },
+            { name: "Riccardino-Alvezinho", official: 1390, current: 100, grand: 1490, zeros: 0, perfects: 4, rank: 5 },
+            { name: "the1337CDAWG", official: 1370, current: 230, grand: 1600, zeros: 1, perfects: 4, rank: 6 },
+            { name: "ATarantino92", official: 1370, current: 100, grand: 1470, zeros: 2, perfects: 5, rank: 7 },
+            { name: "Germany7Brazil1", official: 1370, current: 100, grand: 1470, zeros: 2, perfects: 5, rank: 8 },
+            { name: "KingJeffreyFC", official: 1340, current: 100, grand: 1440, zeros: 0, perfects: 4, rank: 9 },
+            { name: "gshoshani", official: 1290, current: 230, grand: 1520, zeros: 1, perfects: 3, rank: 10 },
+            { name: "Amber Thomas", official: 1290, current: 230, grand: 1520, zeros: 1, perfects: 4, rank: 11 },
+            { name: "AndrewRasho", official: 1190, current: 230, grand: 1420, zeros: 1, perfects: 4, rank: 12 },
+            { name: "TIkILIsh", official: 1110, current: 100, grand: 1210, zeros: 1, perfects: 2, rank: 13 },
+            { name: "mikey10010", official: 1030, current: 100, grand: 1130, zeros: 1, perfects: 1, rank: 14 },
+            { name: "Ricardoalves", official: 990, current: 100, grand: 1090, zeros: 4, perfects: 3, rank: 15 },
+            { name: "mooondawg", official: 930, current: 230, grand: 1160, zeros: 1, perfects: 2, rank: 16 },
+            { name: "gigyak", official: 880, current: 230, grand: 1110, zeros: 2, perfects: 1, rank: 17 },
+            { name: "Tootie", official: 450, current: 50, grand: 500, zeros: 5, perfects: 0, rank: 18 }
         ];
         
         const roasts = {
@@ -873,27 +914,27 @@
                 ]
             },
 
-            // Group G (Current)
+            // Group G — FINAL (Belgium, Egypt, Iran, New Zealand)
             'G': {
-                official: ['EGYPT', 'IRAN', 'BELGIUM', 'NEW ZEALAND'],
+                official: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'],
                 players: [
                     { name: 'smuety', picks: ['BELGIUM', 'IRAN', 'EGYPT', 'NEW ZEALAND'], score: 100, status: 'partial' },
-                    { name: 'gshoshani', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 50, status: 'partial' },
-                    { name: 'gigyak', picks: ['EGYPT', 'NEW ZEALAND', 'BELGIUM', 'IRAN'], score: 100, status: 'partial' },
-                    { name: 'AC3FTW', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 50, status: 'partial' },
+                    { name: 'gshoshani', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 230, status: 'perfect' },
+                    { name: 'gigyak', picks: ['EGYPT', 'NEW ZEALAND', 'BELGIUM', 'IRAN'], score: 0, status: 'zero' },
+                    { name: 'AC3FTW', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 230, status: 'perfect' },
                     { name: 'AndrewRasho', picks: ['BELGIUM', 'IRAN', 'EGYPT', 'NEW ZEALAND'], score: 100, status: 'partial' },
-                    { name: 'the1337CDAWG', picks: ['BELGIUM', 'EGYPT', 'NEW ZEALAND', 'IRAN'], score: 0, status: 'zero' },
-                    { name: 'KingJeffreyFC', picks: ['BELGIUM', 'EGYPT', 'NEW ZEALAND', 'IRAN'], score: 0, status: 'zero' },
-                    { name: 'Tootie', picks: ['EGYPT', 'NEW ZEALAND', 'BELGIUM', 'IRAN'], score: 100, status: 'partial' },
-                    { name: 'Alexdillon56', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 50, status: 'partial' },
-                    { name: 'PacificOcean', picks: ['BELGIUM', 'NEW ZEALAND', 'EGYPT', 'IRAN'], score: 0, status: 'zero' },
-                    { name: 'mikey10010', picks: ['BELGIUM', 'EGYPT', 'NEW ZEALAND', 'IRAN'], score: 0, status: 'zero' },
-                    { name: 'Ricardoalves', picks: ['EGYPT', 'BELGIUM', 'NEW ZEALAND', 'IRAN'], score: 50, status: 'partial' },
+                    { name: 'the1337CDAWG', picks: ['BELGIUM', 'EGYPT', 'NEW ZEALAND', 'IRAN'], score: 100, status: 'partial' },
+                    { name: 'KingJeffreyFC', picks: ['BELGIUM', 'EGYPT', 'NEW ZEALAND', 'IRAN'], score: 100, status: 'partial' },
+                    { name: 'Tootie', picks: ['EGYPT', 'NEW ZEALAND', 'BELGIUM', 'IRAN'], score: 0, status: 'zero' },
+                    { name: 'Alexdillon56', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 230, status: 'perfect' },
+                    { name: 'PacificOcean', picks: ['BELGIUM', 'NEW ZEALAND', 'EGYPT', 'IRAN'], score: 50, status: 'partial' },
+                    { name: 'mikey10010', picks: ['BELGIUM', 'EGYPT', 'NEW ZEALAND', 'IRAN'], score: 100, status: 'partial' },
+                    { name: 'Ricardoalves', picks: ['EGYPT', 'BELGIUM', 'NEW ZEALAND', 'IRAN'], score: 0, status: 'zero' },
                     { name: 'Amber Thomas', picks: ['BELGIUM', 'IRAN', 'EGYPT', 'NEW ZEALAND'], score: 100, status: 'partial' },
-                    { name: 'mooondawg', picks: ['BELGIUM', 'NEW ZEALAND', 'EGYPT', 'IRAN'], score: 0, status: 'zero' },
+                    { name: 'mooondawg', picks: ['BELGIUM', 'NEW ZEALAND', 'EGYPT', 'IRAN'], score: 50, status: 'partial' },
                     { name: 'TIkILIsh', picks: ['BELGIUM', 'IRAN', 'EGYPT', 'NEW ZEALAND'], score: 100, status: 'partial' },
-                    { name: 'Riccardino-Alvezinho', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 50, status: 'partial' },
-                    { name: 'ATarantino92', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 50, status: 'partial' },
+                    { name: 'Riccardino-Alvezinho', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 230, status: 'perfect' },
+                    { name: 'ATarantino92', picks: ['BELGIUM', 'EGYPT', 'IRAN', 'NEW ZEALAND'], score: 230, status: 'perfect' },
                     { name: 'Germany7Brazil1', picks: ['BELGIUM', 'IRAN', 'EGYPT', 'NEW ZEALAND'], score: 100, status: 'partial' }
                 ]
             },
@@ -1182,6 +1223,28 @@
             
             document.getElementById('roast-modal').classList.remove('hidden');
             document.getElementById('roast-modal').classList.add('flex');
+        }
+
+        // Simple section collapse/expand
+        function toggleSection(headerElement) {
+            const content = headerElement.parentElement.nextElementSibling;
+            if (!content) return;
+
+            const chevron = headerElement.querySelector('.fa-chevron-down, .fa-chevron-up');
+            
+            if (content.style.display === 'none') {
+                content.style.display = '';
+                if (chevron) {
+                    chevron.classList.remove('fa-chevron-up');
+                    chevron.classList.add('fa-chevron-down');
+                }
+            } else {
+                content.style.display = 'none';
+                if (chevron) {
+                    chevron.classList.remove('fa-chevron-down');
+                    chevron.classList.add('fa-chevron-up');
+                }
+            }
         }
         
         function closeModal() {
